@@ -1,0 +1,1332 @@
+
+
+<!doctype html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>qpoint package &#8212; qpoint 1.9.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.9.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="_static/bizstyle.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Welcome to qpoint’s documentation!" href="index.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Welcome to qpoint’s documentation!"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">qpoint 1.9.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">qpoint package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-qpoint.qmap_class">qpoint.qmap_class module</a></li>
+<li><a class="reference internal" href="#module-qpoint.qpoint_class">qpoint.qpoint_class module</a></li>
+<li><a class="reference internal" href="#module-qpoint.tools">qpoint.tools module</a></li>
+<li><a class="reference internal" href="#module-qpoint">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">Welcome to qpoint’s documentation!</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/qpoint.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="qpoint-package">
+<h1>qpoint package<a class="headerlink" href="#qpoint-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-qpoint.qmap_class">
+<span id="qpoint-qmap-class-module"></span><h2>qpoint.qmap_class module<a class="headerlink" href="#module-qpoint.qmap_class" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="qpoint.qmap_class.QMap">
+<em class="property">class </em><code class="descclassname">qpoint.qmap_class.</code><code class="descname">QMap</code><span class="sig-paren">(</span><em>nside=None</em>, <em>pol=True</em>, <em>vpol=False</em>, <em>source_map=None</em>, <em>source_pol=True</em>, <em>source_vpol=False</em>, <em>q_bore=None</em>, <em>ctime=None</em>, <em>q_hwp=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/qpoint/qmap_class.html#QMap"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#qpoint.qmap_class.QMap" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#qpoint.qpoint_class.QPoint" title="qpoint.qpoint_class.QPoint"><code class="xref py py-class docutils literal"><span class="pre">qpoint.qpoint_class.QPoint</span></code></a></p>
+<p>Quaternion-based mapmaker that generates per-channel pointing
+on-the-fly.</p>
+<dl class="attribute">
+<dt id="qpoint.qmap_class.QMap.depo">
+<code class="descname">depo</code><em class="property"> = None</em><a class="headerlink" href="#qpoint.qmap_class.QMap.depo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Dictionary of source and output maps, timetreams and pointing data.
+Pointers to these arrays in memory are passed to the C library.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="qpoint.qmap_class.QMap.dest_is_init">
+<code class="descname">dest_is_init</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/qpoint/qmap_class.html#QMap.dest_is_init"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#qpoint.qmap_class.QMap.dest_is_init" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return True if the dest map is initialized, otherwise False.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="qpoint.qmap_class.QMap.dest_is_pol">
+<code class="descname">dest_is_pol</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/qpoint/qmap_class.html#QMap.dest_is_pol"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#qpoint.qmap_class.QMap.dest_is_pol" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return True if the destination map is polarized, otherwise False.
+Raise an error if destination map is not initialized.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="qpoint.qmap_class.QMap.dest_is_vpol">
+<code class="descname">dest_is_vpol</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/qpoint/qmap_class.html#QMap.dest_is_vpol"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#qpoint.qmap_class.QMap.dest_is_vpol" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return True if the destination map contains V polarization,
+otherwise False.
+Raise an error if destination map is not initialized.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="qpoint.qmap_class.QMap.from_tod">
+<code class="descname">from_tod</code><span class="sig-paren">(</span><em>q_off</em>, <em>tod=None</em>, <em>count_hits=True</em>, <em>weight=None</em>, <em>gain=None</em>, <em>mueller=None</em>, <em>flag=None</em>, <em>weights=None</em>, <em>do_diff=False</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/qpoint/qmap_class.html#QMap.from_tod"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#qpoint.qmap_class.QMap.from_tod" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate signal and hits maps for given detectors.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>q_off</strong> (<em>array_like</em>) – quaternion offset array, of shape (ndet, 4)</li>
+<li><strong>tod</strong> (<em>array_like</em><em>, </em><em>optional</em>) – output array for timestreams, of shape (ndet, nsamp)
+if not supplied, only the projection map is populated.</li>
+<li><strong>count_hits</strong> (<em>bool</em><em>, </em><em>optional</em>) – if True (default), populate projection map.</li>
+<li><strong>weight</strong> (<em>array_like</em><em>, </em><em>optional</em>) – array of channel weights, of shape (ndet,).  Defaults to 1 if not
+supplied.</li>
+<li><strong>gain</strong> (<em>array_like</em><em>, </em><em>optional</em>) – Per-channel gains, of shape (ndet,) or a constant.
+Default : 1.</li>
+<li><strong>mueller</strong> (<em>array_like</em><em>, </em><em>optional</em>) – array of Mueller matrix A/B/C elements, of shape (ndet,3).  Defaults to
+[1, 1, 0] per channel if not supplied.</li>
+<li><strong>flag</strong> (<em>array_like</em><em>, </em><em>optional</em>) – array of flag timestreams for each channel, of shape (ndet, nsamp).</li>
+<li><strong>weights</strong> (<em>array_like</em><em>, </em><em>optional</em>) – array of weight timestreams for each channel, of shape (ndet, nsamp).</li>
+<li><strong>do_diff</strong> (<em>do timestream differencing. Assumes first half of tods are</em>) – one pair and the second half are the other.</li>
+<li><strong>remaining keyword arguments are passed to the QPoint.set method.</strong> (<em>The</em>) – </li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><ul class="simple">
+<li><strong>vec</strong> (<em>array_like, optional</em>) – binned signal map, if tod is supplied</li>
+<li><strong>proj</strong> (<em>array_like, optional</em>) – binned projection matrix map, if count_hits is True</li>
+</ul>
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="qpoint.qmap_class.QMap.init_dest">
+<code class="descname">init_dest</code><span class="sig-paren">(</span><em>nside=None</em>, <em>pol=True</em>, <em>vec=None</em>, <em>proj=None</em>, <em>pixels=None</em>, <em>vpol=False</em>, <em>copy=False</em>, <em>reset=False</em>, <em>update=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/qpoint/qmap_class.html#QMap.init_dest"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#qpoint.qmap_class.QMap.init_dest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize the destination map structure.  Timestreams are binned
+and projection matrices accumulated into this structure.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>nside</strong> (<em>int</em><em>, </em><em>optional</em>) – map dimension.  If <cite>pixels</cite> is supplied, this argument is required.
+Otherwise, the default is 256.</li>
+<li><strong>pol</strong> (<em>bool</em><em>, </em><em>optional</em>) – If True, a polarized map will be created.</li>
+<li><strong>vec</strong> (<em>array_like</em><em> or </em><em>bool</em><em>, </em><em>optional</em><em>, </em><em>shape</em><em> (</em><em>N</em><em>, </em><em>npix</em><em>)</em>) – If supplied, nside and pol are determined from this map, and
+the vector (binned signal) map is initialized from this.
+If False, accumulation of this map from timestreams is disabled.</li>
+<li><strong>proj</strong> (<em>array_like</em><em> or </em><em>bool</em><em>, </em><em>optional</em><em>, </em><em>shape</em><em> (</em><em>N*</em><em>(</em><em>N+1</em><em>)</em><em>/2</em><em>, </em><em>npix</em><em>)</em>) – Array of upper-triangular elements of the projection matrix
+for each pixel.  If not supplied, a blank map of the appropriate
+shape is created. If False, accumulation of the projection matrix
+is disabled.</li>
+<li><strong>pixels</strong> (<em>1D array_like</em><em>, </em><em>optional</em>) – Array of pixel numbers for each map index, if <cite>vec</cite> and <cite>proj</cite> are
+partial maps.</li>
+<li><strong>vpol</strong> (<em>bool</em><em>, </em><em>optional</em>) – If True, a polarized map including V polarization will be created.</li>
+<li><strong>copy</strong> (<em>bool</em><em>, </em><em>optional</em>) – If True and vec/proj are supplied, make copies of these inputs
+to avoid in-place operations.</li>
+<li><strong>reset</strong> (<em>bool</em><em>, </em><em>optional</em>) – If True, and if the structure has already been initialized,
+it is reset and re-initialized with the new map.  If False,
+a RuntimeError is raised if the structure has already been
+initialized.</li>
+<li><strong>update</strong> (<em>bool</em><em>, </em><em>optional</em>) – If True, and if the structure has already been initialized,
+the supplied vec and proj are replaced in the existing dest
+structure rather than reinitializing from scratch.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="qpoint.qmap_class.QMap.init_detarr">
+<code class="descname">init_detarr</code><span class="sig-paren">(</span><em>q_off</em>, <em>weight=None</em>, <em>gain=None</em>, <em>mueller=None</em>, <em>tod=None</em>, <em>flag=None</em>, <em>weights=None</em>, <em>do_diff=False</em>, <em>write=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/qpoint/qmap_class.html#QMap.init_detarr"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#qpoint.qmap_class.QMap.init_detarr" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize the detector listing structure.  Detector properties and
+timestreams are passed to and from the mapmaker through this structure.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>q_off</strong> (<em>array_like</em>) – Array of offset quaternions, of shape (ndet, 4).</li>
+<li><strong>weight</strong> (<em>array_like</em><em>, </em><em>optional</em>) – Per-channel mapmaking weights, of shape (ndet,) or a constant.
+Default : 1.</li>
+<li><strong>gain</strong> (<em>array_like</em><em>, </em><em>optional</em>) – Per-channel gains, of shape (ndet,) or a constant.
+Default : 1.</li>
+<li><strong>mueller</strong> (<em>array_like</em><em>, </em><em>optional</em>) – Per-channel polarization efficiencies, of shape(ndet, 3).
+Default : [1., 1., 0.] per det.</li>
+<li><strong>tod</strong> (<em>array_like</em><em>, </em><em>optional</em>) – Timestream array, of shape (ndet, nsamp).  nsamp must match that of
+the pointing structure.  If not supplied and <cite>write</cite> is True, then
+a zero-filled timestream array is initialized.</li>
+<li><strong>flag</strong> (<em>array_like</em><em>, </em><em>optional</em>) – Flag array, of shape (ndet, nsamp), for excluding data from
+mapmaking.  nsamp must match that of the pointing structure.
+If not supplied, a zero-filled array is initialized (i.e. no
+flagged samples).</li>
+<li><strong>weights</strong> (<em>array_like</em><em>, </em><em>optional</em>) – Weight array, of shape (ndet, nsamp), for weighting each sample of
+data.  nsamp must match that of the pointing structure.  If not
+supplied, this option is not used.</li>
+<li><strong>do_diff</strong> (<em>bool</em><em>, </em><em>optional</em>) – If True, initialize pairs of arrays for pair-differenced mapmaking.</li>
+<li><strong>write</strong> (<em>bool</em><em>, </em><em>optional</em>) – If True, the timestreams are ensured writable and created if
+necessary.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="qpoint.qmap_class.QMap.init_point">
+<code class="descname">init_point</code><span class="sig-paren">(</span><em>q_bore=None</em>, <em>ctime=None</em>, <em>q_hwp=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/qpoint/qmap_class.html#QMap.init_point"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#qpoint.qmap_class.QMap.init_point" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize or update the boresight pointing data structure.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>q_bore</strong> (<em>array_like</em><em>, </em><em>optional</em>) – Boresight pointing quaternion, of shape (nsamp, 4).
+If supplied, the pointing structure is reset if already
+initialized.</li>
+<li><strong>ctime</strong> (<em>array_like</em><em>, </em><em>optional</em>) – time since the UTC epoch.  If not None, the time array
+is updated to this. Shape must be (nsamp,)</li>
+<li><strong>q_hwp</strong> (<em>array_like</em><em>, </em><em>optional</em>) – Waveplate quaternion.  If not None, the quaternion is
+updated to this. Shape must be (nsamp, 4)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="qpoint.qmap_class.QMap.init_source">
+<code class="descname">init_source</code><span class="sig-paren">(</span><em>source_map</em>, <em>pol=True</em>, <em>pixels=None</em>, <em>nside=None</em>, <em>vpol=False</em>, <em>reset=False</em>, <em>update=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/qpoint/qmap_class.html#QMap.init_source"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#qpoint.qmap_class.QMap.init_source" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize the source map structure.  Timestreams are
+produced by scanning this map.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>source_map</strong> (<em>array_like</em>) – Input map.  Must be of shape (N, npix), where N can be
+1, 3, 6, 9, or 18.</li>
+<li><strong>pol</strong> (<em>bool</em><em>, </em><em>optional</em>) – If True, and the map shape is (3, npix), then input is a
+polarized map (and not T + 1st derivatives).</li>
+<li><strong>pixels</strong> (<em>1D array_like</em><em>, </em><em>optional</em>) – Array of pixel numbers for each map index, if <cite>source_map</cite> is
+a partial map.</li>
+<li><strong>nside</strong> (<em>int</em><em>, </em><em>optional</em>) – map dimension.  If <cite>pixels</cite> is supplied, this argument is required.
+Otherwise, the nside is determined from the input map.</li>
+<li><strong>vpol</strong> (<em>bool</em><em>, </em><em>optional</em>) – If True, and the input map shape is (4, npix), then input is
+a polarized map that includes V polarization.</li>
+<li><strong>reset</strong> (<em>bool</em><em>, </em><em>optional</em>) – If True, and if the structure has already been initialized,
+it is reset and re-initialized with the new map.  If False,
+a RuntimeError is raised if the structure has already been
+initialized.</li>
+<li><strong>update</strong> (<em>bool</em><em>, </em><em>optional</em>) – If True, and if the structure has already been initialized,
+the supplied source_map is replaced in the existing source
+structure rather than reinitializing from scratch.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Notes</p>
+<p>This method will automatically determine the type of map
+given its shape.  Note that for N=3, the pol keyword argument
+should be used to disambiguate the two map types.  By default,
+a polarized map with (T,Q,U) components is assumed.</p>
+<p>N     map_in contents
+1  :  T
+3  :  (T, Q, U) –or– (T, dTdt, dTdp)
+4  :  (T, Q, U, V)
+6  :  (T, dTdt, dTdp) + (dT2dt2, dT2dpdt, dT2dp2)
+9  :  (T, Q, U) + (dTdt, dQdt, dUdt, dTdp, dQdp, dUdp)
+18 :  (N=9) + (dT2dt2, dQ2dt2, dU2dt2, dT2dpdt, dQ2dpdt, dU2dpdt,</p>
+<blockquote>
+<div>dT2dp2, dQ2dp2, dU2dp2)</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="qpoint.qmap_class.QMap.point_is_init">
+<code class="descname">point_is_init</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/qpoint/qmap_class.html#QMap.point_is_init"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#qpoint.qmap_class.QMap.point_is_init" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return True if the point map is initialized, otherwise False.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="qpoint.qmap_class.QMap.proj_cond">
+<code class="descname">proj_cond</code><span class="sig-paren">(</span><em>proj=None</em>, <em>mode=None</em>, <em>partial=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/qpoint/qmap_class.html#QMap.proj_cond"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#qpoint.qmap_class.QMap.proj_cond" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hits-normalized projection matrix condition number for
+each pixel.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>proj</strong> (<em>array_like</em>) – Projection matrix, of shape (N*(N+1)/2, npix).
+If None, obtained from the depo.</li>
+<li><strong>mode</strong> (<em>{None</em><em>, </em><em>1</em><em>, </em><em>-1</em><em>, </em><em>2</em><em>, </em><em>-2</em><em>, </em><em>inf</em><em>, </em><em>-inf</em><em>, </em><em>'fro'}</em><em>, </em><em>optional</em>) – condition number order.  See <cite>numpy.linalg.cond</cite>.
+Default: None (2-norm from SVD)</li>
+<li><strong>partial</strong> (<em>bool</em><em>, </em><em>optional</em>) – If True, the map is not checked to ensure a proper healpix nside.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>cond</strong> – Condition number of each pixel.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">array_like</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="qpoint.qmap_class.QMap.reset">
+<code class="descname">reset</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/qpoint/qmap_class.html#QMap.reset"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#qpoint.qmap_class.QMap.reset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reset the internal data structures, and clear the data depo.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="qpoint.qmap_class.QMap.reset_dest">
+<code class="descname">reset_dest</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/qpoint/qmap_class.html#QMap.reset_dest"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#qpoint.qmap_class.QMap.reset_dest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reset the destination map structure.
+Must be reinitialized to continue mapmaking.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="qpoint.qmap_class.QMap.reset_detarr">
+<code class="descname">reset_detarr</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/qpoint/qmap_class.html#QMap.reset_detarr"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#qpoint.qmap_class.QMap.reset_detarr" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reset the detector array structure.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="qpoint.qmap_class.QMap.reset_point">
+<code class="descname">reset_point</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/qpoint/qmap_class.html#QMap.reset_point"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#qpoint.qmap_class.QMap.reset_point" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reset the pointing data structure.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="qpoint.qmap_class.QMap.reset_source">
+<code class="descname">reset_source</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/qpoint/qmap_class.html#QMap.reset_source"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#qpoint.qmap_class.QMap.reset_source" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reset the source map structure.  Must be reinitialized to
+produce more timestreams.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="qpoint.qmap_class.QMap.solve_map">
+<code class="descname">solve_map</code><span class="sig-paren">(</span><em>vec=None</em>, <em>proj=None</em>, <em>mask=None</em>, <em>copy=True</em>, <em>return_proj=False</em>, <em>return_mask=False</em>, <em>partial=None</em>, <em>fill=0</em>, <em>cond=None</em>, <em>cond_thresh=1000000.0</em>, <em>method=’exact’</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/qpoint/qmap_class.html#QMap.solve_map"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#qpoint.qmap_class.QMap.solve_map" title="Permalink to this definition">¶</a></dt>
+<dd><p>Solve for a map, given the binned map and the projection matrix
+for each pixel.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>vec</strong> (<em>array_like</em><em>, </em><em>optional</em>) – A map or list of N maps.  Default to <cite>depo[‘vec’]</cite>.</li>
+<li><strong>proj</strong> (<em>array_like</em><em>, </em><em>optional</em>) – An array of upper-triangular projection matrices for each pixel,
+of shape (N*(N+1)/2, npix).  Default to <cite>depo[‘proj’]</cite>.</li>
+<li><strong>mask</strong> (<em>array_like</em><em>, </em><em>optional</em>) – A mask of shape (npix,), evaluates to True where pixels are valid.
+The input mask in converted to a boolean array if supplied.</li>
+<li><strong>copy</strong> (<em>bool</em><em>, </em><em>optional</em>) – if False, do the computation in-place so that the input maps are
+modified.  Otherwise, a copy is created prior to solving.
+Default: False.</li>
+<li><strong>return_proj</strong> (<em>bool</em><em>, </em><em>optional</em>) – if True, return the Cholesky-decomposed projection matrix.
+if False, and inplace is True, the input projection matrix
+is not modified.</li>
+<li><strong>return_mask</strong> (<em>bool</em><em>, </em><em>optional</em>) – if True, return the mask array, updated with any pixels
+that could not be solved.</li>
+<li><strong>partial</strong> (<em>bool</em><em>, </em><em>optional</em>) – If True, the map is not checked to ensure a proper healpix nside.</li>
+<li><strong>fill</strong> (<em>scalar</em><em>, </em><em>optional</em>) – Fill the solved map where proj == 0 with this value.  Default: 0.</li>
+<li><strong>cond</strong> (<em>array_like</em><em>, </em><em>optional</em>) – A map of condition number per pixel.  If not supplied, this will be
+calculated using <cite>proj_cond</cite></li>
+<li><strong>cond_thresh</strong> (<em>scalar</em><em>, </em><em>optional</em>) – A threshold to place on the condition number to exclude pixels
+prior to solving.  Reduce this to avoid <cite>LinAlgError</cite> due to
+singular matrices.</li>
+<li><strong>method</strong> (<em>string</em><em>, </em><em>optional</em>) – Map inversion method.  If “exact”, invert the pointing matrix directly
+If “cho”, use Cholesky decomposition to solve.  Default: “exact”.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><ul class="simple">
+<li><strong>map</strong> (<em>array_like</em>) – A solved map or set of maps, in shape (N, npix).</li>
+<li><strong>proj_out</strong> (<em>array_like</em>) – The upper triangular elements of the decomposed projection matrix,
+(if method is ‘cho’) or of the matrix inverse (if method is ‘exact’),
+if requested, in shape (N*(N+1)/2, npix).</li>
+<li><strong>mask</strong> (<em>array_like</em>) – 1-d array, True for valid pixels, if <cite>return_mask</cite> is True</li>
+</ul>
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="qpoint.qmap_class.QMap.solve_map_cho">
+<code class="descname">solve_map_cho</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/qpoint/qmap_class.html#QMap.solve_map_cho"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#qpoint.qmap_class.QMap.solve_map_cho" title="Permalink to this definition">¶</a></dt>
+<dd><p>Solve for a map, given the binned map and the projection matrix
+for each pixel, using Cholesky decomposition.  This method
+uses the scipy.linalg.cho_factor and scipy.linalg.cho_solve
+functions internally.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>vec</strong> (<em>array_like</em><em>, </em><em>optional</em>) – A map or list of N maps.  Default to <cite>depo[‘vec’]</cite>.</li>
+<li><strong>proj</strong> (<em>array_like</em><em>, </em><em>optional</em>) – An array of upper-triangular projection matrices for each pixel,
+of shape (N*(N+1)/2, npix).  Default to <cite>depo[‘proj’]</cite>.</li>
+<li><strong>mask</strong> (<em>array_like</em><em>, </em><em>optional</em>) – A mask of shape (npix,), evaluates to True where pixels are valid.
+The input mask in converted to a boolean array if supplied.</li>
+<li><strong>copy</strong> (<em>bool</em><em>, </em><em>optional</em>) – if False, do the computation in-place so that the input maps are
+modified.  Otherwise, a copy is created prior to solving.
+Default: False.</li>
+<li><strong>return_proj</strong> (<em>bool</em><em>, </em><em>optional</em>) – if True, return the Cholesky-decomposed projection matrix.
+if False, and inplace is True, the input projection matrix
+is not modified.</li>
+<li><strong>return_mask</strong> (<em>bool</em><em>, </em><em>optional</em>) – if True, return the mask array, updated with any pixels
+that could not be solved.</li>
+<li><strong>partial</strong> (<em>bool</em><em>, </em><em>optional</em>) – If True, the map is not checked to ensure a proper healpix nside.</li>
+<li><strong>fill</strong> (<em>scalar</em><em>, </em><em>optional</em>) – Fill the solved map where proj == 0 with this value.  Default: 0.</li>
+<li><strong>cond</strong> (<em>array_like</em><em>, </em><em>optional</em>) – A map of condition number per pixel.  If not supplied, this will be
+calculated using <cite>proj_cond</cite></li>
+<li><strong>cond_thresh</strong> (<em>scalar</em><em>, </em><em>optional</em>) – A threshold to place on the condition number to exclude pixels
+prior to solving.  Reduce this to avoid <cite>LinAlgError</cite> due to
+singular matrices.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><ul class="simple">
+<li><strong>map</strong> (<em>array_like</em>) – A solved map or set of maps, in shape (N, npix).</li>
+<li><strong>proj_out</strong> (<em>array_like</em>) – The upper triangular elements of the decomposed projection matrix,
+if requested, in shape (N*(N+1)/2, npix).</li>
+<li><strong>mask</strong> (<em>array_like</em>) – 1-d array, True for valid pixels, if <cite>return_mask</cite> is True</li>
+</ul>
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="qpoint.qmap_class.QMap.source_is_init">
+<code class="descname">source_is_init</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/qpoint/qmap_class.html#QMap.source_is_init"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#qpoint.qmap_class.QMap.source_is_init" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return True if the source map is initialized, otherwise False.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="qpoint.qmap_class.QMap.source_is_pol">
+<code class="descname">source_is_pol</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/qpoint/qmap_class.html#QMap.source_is_pol"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#qpoint.qmap_class.QMap.source_is_pol" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return True if the source map is polarized, otherwise False.
+Raise an error if source map is not initialized.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="qpoint.qmap_class.QMap.source_is_vpol">
+<code class="descname">source_is_vpol</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/qpoint/qmap_class.html#QMap.source_is_vpol"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#qpoint.qmap_class.QMap.source_is_vpol" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return True if the source map contains V polarization,
+otherwise False.
+Raise an error if source map is not initialized.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="qpoint.qmap_class.QMap.to_tod">
+<code class="descname">to_tod</code><span class="sig-paren">(</span><em>q_off</em>, <em>gain=None</em>, <em>mueller=None</em>, <em>tod=None</em>, <em>flag=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/qpoint/qmap_class.html#QMap.to_tod"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#qpoint.qmap_class.QMap.to_tod" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate signal TOD from source map for multiple channels.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>q_off</strong> (<em>array_like</em>) – quaternion offset array, of shape (ndet, 4)</li>
+<li><strong>gain</strong> (<em>array_like</em><em>, </em><em>optional</em>) – Per-channel gains, of shape (ndet,) or a constant.
+Default : 1.</li>
+<li><strong>mueller</strong> (<em>array_like</em><em>, </em><em>optional</em>) – array of Mueller matrix A/B/C elements, of shape (ndet, 3).  Defaults t
+[1, 1, 0] per channel if not supplied.</li>
+<li><strong>tod</strong> (<em>array_like</em><em>, </em><em>optional</em>) – output array for timestreams, of shape (ndet, nsamp)
+use this keyword argument for in-place computation.</li>
+<li><strong>remaining keyword arguments are passed to the QPoint.set method.</strong> (<em>The</em>) – </li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>tod</strong> – A timestream sampled from the input map for each requested detector.
+The output array shape is (ndet, nsamp).</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">array_like</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="qpoint.qmap_class.QMap.unsolve_map">
+<code class="descname">unsolve_map</code><span class="sig-paren">(</span><em>map_in</em>, <em>proj=None</em>, <em>mask=None</em>, <em>copy=True</em>, <em>return_proj=False</em>, <em>return_mask=False</em>, <em>partial=None</em>, <em>fill=0</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/qpoint/qmap_class.html#QMap.unsolve_map"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#qpoint.qmap_class.QMap.unsolve_map" title="Permalink to this definition">¶</a></dt>
+<dd><p>Invert the solved map to recover the binned vec array.</p>
+<dl class="docutils">
+<dt>map_in <span class="classifier-delimiter">:</span> <span class="classifier">array_like</span></dt>
+<dd>A map or list of N maps.</dd>
+<dt>proj <span class="classifier-delimiter">:</span> <span class="classifier">array_like, optional</span></dt>
+<dd>An array of upper-triangular projection matrices for each pixel,
+of shape (N*(N+1)/2, npix).  Default to <cite>depo[‘proj’]</cite>.</dd>
+<dt>mask <span class="classifier-delimiter">:</span> <span class="classifier">array_like, optional</span></dt>
+<dd>A mask of shape (npix,), evaluates to True where pixels are valid.
+The input mask in converted to a boolean array if supplied.</dd>
+<dt>copy <span class="classifier-delimiter">:</span> <span class="classifier">bool, optional</span></dt>
+<dd>if False, do the computation in-place so that the input maps are
+modified.  Otherwise, a copy is created prior to solving.
+Default: False.</dd>
+<dt>return_proj <span class="classifier-delimiter">:</span> <span class="classifier">bool, optional</span></dt>
+<dd>if True, return the Cholesky-decomposed projection matrix.
+if False, and inplace is True, the input projection matrix
+is not modified.</dd>
+<dt>return_mask <span class="classifier-delimiter">:</span> <span class="classifier">bool, optional</span></dt>
+<dd>if True, return the mask array, updated with any pixels
+that could not be solved.</dd>
+<dt>partial <span class="classifier-delimiter">:</span> <span class="classifier">bool, optional</span></dt>
+<dd>If True, the map is not checked to ensure a proper healpix nside.</dd>
+<dt>fill <span class="classifier-delimiter">:</span> <span class="classifier">scalar, optional</span></dt>
+<dd>Fill the solved map where proj == 0 with this value.  Default: 0.</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><ul class="simple">
+<li><strong>vec</strong> (<em>array_like</em>) – A binned map or set of maps, in shape (N, npix).</li>
+<li><strong>proj_out</strong> (<em>array_like</em>) – The upper triangular elements of the projection matrix,
+if requested, in shape (N*(N+1)/2, npix).</li>
+<li><strong>mask</strong> (<em>array_like</em>) – 1-d array, True for valid pixels, if <cite>return_mask</cite> is True</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="qpoint.qmap_class.check_map">
+<code class="descclassname">qpoint.qmap_class.</code><code class="descname">check_map</code><span class="sig-paren">(</span><em>map_in</em>, <em>copy=False</em>, <em>partial=False</em>, <em>dtype=&lt;type ‘numpy.float64’&gt;</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/qpoint/qmap_class.html#check_map"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#qpoint.qmap_class.check_map" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a properly transposed and memory-aligned map and its nside.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>map_in</strong> (<em>map</em><em> or </em><em>list of maps</em>) – Input map(s)</li>
+<li><strong>copy</strong> (<em>bool</em><em>, </em><em>optional</em>) – If True, ensure that output map does not share memory with
+the input map.   Use if you do not want in-place operations to
+modify the map contents.</li>
+<li><strong>partial</strong> (<em>bool</em><em>, </em><em>optional</em>) – If True, the map is not checked to ensure a proper healpix nside,
+and the number of pixels is returned instead.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><ul class="simple">
+<li><strong>map_out</strong> (<em>numpy.ndarray</em>) – Properly shaped and memory-aligned map, copied from the input
+if necessary.</li>
+<li><strong>nside or npix</strong> (<em>int</em>) – If partial is False, the map nside. Otherwise, the number of pixels.</li>
+</ul>
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="qpoint.qmap_class.check_proj">
+<code class="descclassname">qpoint.qmap_class.</code><code class="descname">check_proj</code><span class="sig-paren">(</span><em>proj_in</em>, <em>copy=False</em>, <em>partial=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/qpoint/qmap_class.html#check_proj"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#qpoint.qmap_class.check_proj" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a properly transposed and memory-aligned projection map,
+its nside, and the map dimension.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>proj_in</strong> (<em>map</em><em> or </em><em>list of maps</em>) – Input projection matrix map</li>
+<li><strong>copy</strong> (<em>bool</em><em>, </em><em>optional</em>) – If True, ensure that output map does not share memory with
+the input map.   Use if you do not want in-place operations to
+modify the map contents.</li>
+<li><strong>partial</strong> (<em>bool</em><em>, </em><em>optional</em>) – If True, the map is not checked to ensure a proper healpix nside,
+and the number of pixels is returned instead.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><ul class="simple">
+<li><strong>map_out</strong> (<em>numpy.ndarray</em>) – Properly shaped and memory-aligned map, copied from the input
+if necessary.</li>
+<li><strong>nside or npix</strong> (<em>int</em>) – If partial is False, the map nside. Otherwise, the number of pixels.</li>
+<li><strong>nmap</strong> (<em>int</em>) – The map size this projection matrix is intended to invert, i.e.
+the solution to <cite>len(proj) = nmap * (nmap + 1) / 2</cite>.  Raises an
+error if an integer solution is not found.</li>
+</ul>
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="module-qpoint.qpoint_class">
+<span id="qpoint-qpoint-class-module"></span><h2>qpoint.qpoint_class module<a class="headerlink" href="#module-qpoint.qpoint_class" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="qpoint.qpoint_class.QPoint">
+<em class="property">class </em><code class="descclassname">qpoint.qpoint_class.</code><code class="descname">QPoint</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/qpoint/qpoint_class.html#QPoint"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#qpoint.qpoint_class.QPoint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<dl class="method">
+<dt id="qpoint.qpoint_class.QPoint.azel2bore">
+<code class="descname">azel2bore</code><span class="sig-paren">(</span><em>az</em>, <em>el</em>, <em>pitch</em>, <em>roll</em>, <em>lon</em>, <em>lat</em>, <em>ctime</em>, <em>q=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/qpoint/qpoint_class.html#QPoint.azel2bore"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#qpoint.qpoint_class.QPoint.azel2bore" title="Permalink to this definition">¶</a></dt>
+<dd><p>Estimate the quaternion for the boresight orientation on the sky given
+the attitude (az/el/pitch/roll), location on the earth (lon/lat) and
+ctime. Input vectors must be numpy-array-like and of the same shape.</p>
+<p>Arguments:</p>
+<p>az         boresight azimuth (degrees)
+el         boresight elevation (degrees)
+pitch      boresight pitch (degrees); can be None
+roll       boresight pitch (degrees); can be None
+lon        observer longitude (degrees)
+lat        observer latitude (degrees)
+ctime      unix time in seconds UTC
+q          output quaternion array initialized by user</p>
+<p>Keywork arguments:</p>
+<p>Any keywords accepted by the QPoint.set function can also be passed
+here, and will be processed prior to calculation.</p>
+<p>Output:</p>
+<p>q          Nx4 numpy array of quaternions for each supplied timestamp.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="qpoint.qpoint_class.QPoint.azel2radec">
+<code class="descname">azel2radec</code><span class="sig-paren">(</span><em>delta_az</em>, <em>delta_el</em>, <em>delta_psi</em>, <em>az</em>, <em>el</em>, <em>pitch</em>, <em>roll</em>, <em>lon</em>, <em>lat</em>, <em>ctime</em>, <em>hwp=None</em>, <em>sindec=False</em>, <em>ra=None</em>, <em>dec=None</em>, <em>sin2psi=None</em>, <em>cos2psi=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/qpoint/qpoint_class.html#QPoint.azel2radec"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#qpoint.qpoint_class.QPoint.azel2radec" title="Permalink to this definition">¶</a></dt>
+<dd><p>Estimate the orientation on the sky for a detector offset from
+boresight, given the boresight attitude (az/el/pitch/roll), location on
+the earth (lon/lat) and UTC time.  Input vectors must be
+numpy-array-like and of the same shape. Detector offsets are defined
+assuming the boresight is pointed toward the horizon, and that the
+boresight polarization axis is along the horizontal.</p>
+<p>Arguments:</p>
+<p>delta_az   azimuthal offset of the detector (degrees)
+delta_el   elevation offset of the detector (degrees)
+delta_psi  polarization offset of the detector (degrees)
+az         boresight azimuth (degrees)
+el         boresight elevation (degrees)
+pitch      boresight pitch (degrees); can be None
+roll       boresight roll (degrees); can be None
+lon        observer longitude (degrees)
+lat        observer latitude (degrees)
+ctime      unix time in seconds UTC</p>
+<p>Keyword arguments:</p>
+<p>hwp        HWP angles (degrees)
+sindec     If True, return sin(dec) instead of dec in degrees</p>
+<blockquote>
+<div>(default False)</div></blockquote>
+<p>Any keywords accepted by the QPoint.set function can also be passed
+here, and will be processed prior to calculation.</p>
+<p>Outputs:</p>
+<p>ra         detector right ascension (degrees)
+dec/sindec detector declination (degrees)
+sin2psi    detector polarization orientation
+cos2psi    detector polarization orientation</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="qpoint.qpoint_class.QPoint.bore2dipole">
+<code class="descname">bore2dipole</code><span class="sig-paren">(</span><em>q_off</em>, <em>ctime</em>, <em>q_bore</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/qpoint/qpoint_class.html#QPoint.bore2dipole"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#qpoint.qpoint_class.QPoint.bore2dipole" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate dipole timestream for given offset and boresight pointing.</p>
+<p>Arguments:</p>
+<dl class="docutils">
+<dt>q_off      Detector offset quaternion for a single detector,</dt>
+<dd>calculated using det_offset</dd>
+</dl>
+<p>ctime      array of unix times in seconds UTC
+q_bore     Nx4 array of quaternions encoding the boresight orientation</p>
+<blockquote>
+<div>on the sky (as output by azel2radec)</div></blockquote>
+<p>Outputs:</p>
+<p>dipole     dipole amplitude in K</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="qpoint.qpoint_class.QPoint.bore2pix">
+<code class="descname">bore2pix</code><span class="sig-paren">(</span><em>q_off</em>, <em>ctime</em>, <em>q_bore</em>, <em>q_hwp=None</em>, <em>nside=256</em>, <em>pol=True</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/qpoint/qpoint_class.html#QPoint.bore2pix"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#qpoint.qpoint_class.QPoint.bore2pix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the orientation on the sky for a detector offset from the
+boresight.  Detector offsets are defined assuming the boresight is
+pointed toward the horizon, and that the boresight polarization axis is
+along the vertical.</p>
+<p>Arguments:</p>
+<dl class="docutils">
+<dt>q_off      Detector offset quaternion for a single detector,</dt>
+<dd>calculated using det_offset</dd>
+</dl>
+<p>ctime      array of unix times in seconds UTC
+q_bore     Nx4 array of quaternions encoding the boresight orientation</p>
+<blockquote>
+<div>on the sky (as output by azel2radec)</div></blockquote>
+<p>Keyword arguments:</p>
+<dl class="docutils">
+<dt>q_hwp      HWP angle quaternions calculated using hwp_quat</dt>
+<dd>must be same shape as q_bore</dd>
+</dl>
+<p>nside      map dimension
+pol        if False, return only the pixel timestream</p>
+<p>Any keywords accepted by the QPoint.set function can also be passed
+here, and will be processed prior to calculation.</p>
+<p>Outputs:</p>
+<p>pix        detector pixel number
+sin2psi    detector polarization orientation (if pol is True)
+cos2psi    detector polarization orientation (if pol is True)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="qpoint.qpoint_class.QPoint.bore2radec">
+<code class="descname">bore2radec</code><span class="sig-paren">(</span><em>q_off</em>, <em>ctime</em>, <em>q_bore</em>, <em>q_hwp=None</em>, <em>sindec=False</em>, <em>return_pa=False</em>, <em>ra=None</em>, <em>dec=None</em>, <em>pa=None</em>, <em>sin2psi=None</em>, <em>cos2psi=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/qpoint/qpoint_class.html#QPoint.bore2radec"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#qpoint.qpoint_class.QPoint.bore2radec" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the orientation on the sky for a detector offset from the
+boresight.  Detector offsets are defined assuming the boresight is
+pointed toward the horizon, and that the boresight polarization axis is
+along the vertical.</p>
+<p>Arguments:</p>
+<dl class="docutils">
+<dt>q_off      Detector offset quaternion for a single detector,</dt>
+<dd>calculated using det_offset</dd>
+</dl>
+<p>ctime      array of unix times in seconds UTC
+q_bore     Nx4 array of quaternions encoding the boresight orientation</p>
+<blockquote>
+<div>on the sky (as output by azel2radec)</div></blockquote>
+<p>Keyword arguments:</p>
+<dl class="docutils">
+<dt>q_hwp      HWP angle quaternions calculated using hwp_quat</dt>
+<dd>must be same shape as q_bore</dd>
+<dt>sindec     If True, return sin(dec) instead of dec in degrees</dt>
+<dd>(default False)</dd>
+</dl>
+<p>return_pa  If True, return pa instead of sin2psi / cos2psi</p>
+<p>Any keywords accepted by the QPoint.set function can also be passed
+here, and will be processed prior to calculation.</p>
+<p>Outputs:</p>
+<p>ra         detector right ascension (degrees)
+dec/sindec detector declination (degrees) or sin(dec)
+sin2psi    detector polarization orientation
+cos2psi    detector polarization orientation</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="qpoint.qpoint_class.QPoint.bore_offset">
+<code class="descname">bore_offset</code><span class="sig-paren">(</span><em>q_bore</em>, <em>ang1=None</em>, <em>ang2=None</em>, <em>ang3=None</em>, <em>post=False</em>, <em>inplace=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/qpoint/qpoint_class.html#QPoint.bore_offset"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#qpoint.qpoint_class.QPoint.bore_offset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply a fixed or variable offset to the boresight quaternion.</p>
+<p>Arguments:</p>
+<p>q_bore    boresight pointing quaternion
+ang1      azimuthal or ra offset (degrees), scalar or array
+ang2      elevation or dec offset (degrees), scalar or array
+ang3      position angle offset (degrees), scalar or array
+post      If False, apply offset as an az/el/pa pre-rotation</p>
+<blockquote>
+<div>If True, apply offset as an ra/dec/pa post-rotation</div></blockquote>
+<p>inplace   If True, apply the rotation in-place in memory.</p>
+<p>Outputs:</p>
+<p>q_bore    Offset boresight quaternion</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="qpoint.qpoint_class.QPoint.det_offset">
+<code class="descname">det_offset</code><span class="sig-paren">(</span><em>delta_az</em>, <em>delta_el</em>, <em>delta_psi</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/qpoint/qpoint_class.html#QPoint.det_offset"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#qpoint.qpoint_class.QPoint.det_offset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return quaternion corresponding to the requested detector offset.
+Vectorized.</p>
+<p>Arguments:</p>
+<p>delta_az   azimuthal offset of the detector (degrees)
+delta_el   elevation offset of the detector (degrees)
+delta_psi  polarization offset of the detector (degrees)</p>
+<p>Outputs:</p>
+<p>q          detector offset quaternion for each detector</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="qpoint.qpoint_class.QPoint.dipole">
+<code class="descname">dipole</code><span class="sig-paren">(</span><em>ctime</em>, <em>ra</em>, <em>dec</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/qpoint/qpoint_class.html#QPoint.dipole"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#qpoint.qpoint_class.QPoint.dipole" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return dipole amplitude in the given equatorial direction.
+Vectorized.</p>
+<p>Arguments:</p>
+<p>ctime      unix time in seconds UTC
+ra         right ascension on the sky
+dec        declination on the sky</p>
+<p>Keyword arguments:</p>
+<p>Any keywords accepted by the QPoint.set function can also be passed
+here, and will be processed prior to calculation.</p>
+<p>Outputs:</p>
+<p>dipole     dipole amplitude in K</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="qpoint.qpoint_class.QPoint.gal2radec">
+<code class="descname">gal2radec</code><span class="sig-paren">(</span><em>ra</em>, <em>dec</em>, <em>pa=None</em>, <em>sin2psi=None</em>, <em>cos2psi=None</em>, <em>inplace=True</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/qpoint/qpoint_class.html#QPoint.gal2radec"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#qpoint.qpoint_class.QPoint.gal2radec" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rotate celestial coordinates to galactic coordinates.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="qpoint.qpoint_class.QPoint.get">
+<code class="descname">get</code><span class="sig-paren">(</span><em>*args</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/qpoint/qpoint_class.html#QPoint.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#qpoint.qpoint_class.QPoint.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a dictionary of the requested state parameters.  If no
+parameters are supplied, then all are returned.  If a single parameter
+is supplied, then just that value is returned.  See QPoint.set for a
+list of parameter names.</p>
+<p>Can also select ‘options’, ‘rates’, ‘weather’, or ‘params’ to return
+all of that subset of parameters.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="qpoint.qpoint_class.QPoint.get_bulletin_a">
+<code class="descname">get_bulletin_a</code><span class="sig-paren">(</span><em>mjd</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/qpoint/qpoint_class.html#QPoint.get_bulletin_a"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#qpoint.qpoint_class.QPoint.get_bulletin_a" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return dut1/x/y for given mjd. Numpy-vectorized.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="qpoint.qpoint_class.QPoint.get_interp_val">
+<code class="descname">get_interp_val</code><span class="sig-paren">(</span><em>map_in</em>, <em>ra</em>, <em>dec</em>, <em>nest=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/qpoint/qpoint_class.html#QPoint.get_interp_val"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#qpoint.qpoint_class.QPoint.get_interp_val" title="Permalink to this definition">¶</a></dt>
+<dd><p>Interpolate map pixels to these coordinates.  Uses a C implementation
+of the bilinear interpolation method <cite>get_interpol()</cite> as implemented
+in the equivalent healpix_cxx / healpy function.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>map_in</strong> (<em>array_like</em>) – A single healpix map or list of maps which to interpolate from.</li>
+<li><strong>dec</strong> (<em>ra</em><em>,</em>) – Timestreams of coordinates to interpolate to, in degrees,
+of shape (nsample,)</li>
+<li><strong>nest</strong> (<em>bool</em><em>, </em><em>optional</em>) – If True, input map is in the nested pixel ordering scheme.
+Otherwise, ring ordering is assumed.
+Default: False.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>values</strong> – Array of interpolated map values, of shape (nmap, nsample).</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">array_like</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="qpoint.qpoint_class.QPoint.gmst">
+<code class="descname">gmst</code><span class="sig-paren">(</span><em>ctime</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/qpoint/qpoint_class.html#QPoint.gmst"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#qpoint.qpoint_class.QPoint.gmst" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return Greenwich mean sidereal time for given ctimes and longitudes.
+Vectorized.</p>
+<p>Arguments:</p>
+<p>ctime      unix time in seconds UTC</p>
+<p>Keyword arguments:</p>
+<p>Any keywords accepted by the QPoint.set function can also be passed
+here, and will be processed prior to calculation.</p>
+<p>Outputs:</p>
+<p>gmst       Greenwich mean sidereal time of the observer</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="qpoint.qpoint_class.QPoint.hwp_quat">
+<code class="descname">hwp_quat</code><span class="sig-paren">(</span><em>theta</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/qpoint/qpoint_class.html#QPoint.hwp_quat"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#qpoint.qpoint_class.QPoint.hwp_quat" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return quaternion corresponding to rotation by 2*theta,
+where theta is the physical waveplate angle.
+Vectorized.</p>
+<p>Arguments:</p>
+<p>theta      hwp physical angle (degrees)</p>
+<p>Outputs:</p>
+<p>q          quaternion for each hwp angle</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="qpoint.qpoint_class.QPoint.lmst">
+<code class="descname">lmst</code><span class="sig-paren">(</span><em>ctime</em>, <em>lon</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/qpoint/qpoint_class.html#QPoint.lmst"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#qpoint.qpoint_class.QPoint.lmst" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return local mean sidereal time for given ctimes and longitudes.
+Vectorized.</p>
+<p>Arguments:</p>
+<p>ctime      unix time in seconds UTC
+lon        observer longitude (degrees)</p>
+<p>Keyword arguments:</p>
+<p>Any keywords accepted by the QPoint.set function can also be passed
+here, and will be processed prior to calculation.</p>
+<p>Outputs:</p>
+<p>lmst       local mean sidereal time of the observer</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="qpoint.qpoint_class.QPoint.load_bulletin_a">
+<code class="descname">load_bulletin_a</code><span class="sig-paren">(</span><em>filename, columns=[‘mjd’, ‘dut1’, ‘x’, ‘y’], **kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/qpoint/qpoint_class.html#QPoint.load_bulletin_a"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#qpoint.qpoint_class.QPoint.load_bulletin_a" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load IERS Bulletin A from file and store in memory.  The file must be
+readable using numpy.loadtxt with unpack=True, and is assumed to be sorted
+by mjd.</p>
+<p>Keyword arguments:</p>
+<dl class="docutils">
+<dt>columns    list of columns as they appear in the file.</dt>
+<dd>A KeyError is raise if the list does not contain
+each of [‘mjd’, ‘dut1’, ‘x’, ‘y’]</dd>
+</dl>
+<p>Any other keyword arguments are passed to the numpy.loadtxt function</p>
+<p>Output:</p>
+<p>mjd, dut1, x, y</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="qpoint.qpoint_class.QPoint.print_memory">
+<code class="descname">print_memory</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/qpoint/qpoint_class.html#QPoint.print_memory"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#qpoint.qpoint_class.QPoint.print_memory" title="Permalink to this definition">¶</a></dt>
+<dd><p>Print current memory state in C.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="qpoint.qpoint_class.QPoint.quat2pix">
+<code class="descname">quat2pix</code><span class="sig-paren">(</span><em>quat</em>, <em>nside=256</em>, <em>pol=True</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/qpoint/qpoint_class.html#QPoint.quat2pix"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#qpoint.qpoint_class.QPoint.quat2pix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate healpix pixel number and polarization angle given
+quaternion and nside</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="qpoint.qpoint_class.QPoint.quat2radecpa">
+<code class="descname">quat2radecpa</code><span class="sig-paren">(</span><em>quat</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/qpoint/qpoint_class.html#QPoint.quat2radecpa"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#qpoint.qpoint_class.QPoint.quat2radecpa" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate ra/dec/pa for input quaternion(s).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="qpoint.qpoint_class.QPoint.radec2gal">
+<code class="descname">radec2gal</code><span class="sig-paren">(</span><em>ra</em>, <em>dec</em>, <em>pa=None</em>, <em>sin2psi=None</em>, <em>cos2psi=None</em>, <em>inplace=True</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/qpoint/qpoint_class.html#QPoint.radec2gal"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#qpoint.qpoint_class.QPoint.radec2gal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rotate celestial coordinates to galactic coordinates.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="qpoint.qpoint_class.QPoint.radec2pix">
+<code class="descname">radec2pix</code><span class="sig-paren">(</span><em>ra</em>, <em>dec</em>, <em>nside=256</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/qpoint/qpoint_class.html#QPoint.radec2pix"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#qpoint.qpoint_class.QPoint.radec2pix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate healpix pixel number for given ra/dec and nside</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="qpoint.qpoint_class.QPoint.radecpa2quat">
+<code class="descname">radecpa2quat</code><span class="sig-paren">(</span><em>ra</em>, <em>dec</em>, <em>pa</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/qpoint/qpoint_class.html#QPoint.radecpa2quat"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#qpoint.qpoint_class.QPoint.radecpa2quat" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate quaternion for input ra/dec/pa.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="qpoint.qpoint_class.QPoint.refraction">
+<code class="descname">refraction</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/qpoint/qpoint_class.html#QPoint.refraction"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#qpoint.qpoint_class.QPoint.refraction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update refraction parameters</p>
+<p>Arguments (positional or keyword):</p>
+<p>q            observer orientation in horizon coordinates
+temperature  temperature, Celcius
+pressure     pressure, mbar
+humidity     humidity, fraction
+frequency    array frequency, GHz
+delta        the refraction correction itself, in degrees</p>
+<p>If el is given, then the refraction correction in degrees
+is calculated, stored and returned after updating any other given
+parameters. Otherwise, the correction is returned w/out recalculating.</p>
+<p>Alternatively, if a single numerical argument, or the ‘delta’ keyword
+argument is given, then the correction is stored with this value
+instead of being recalculated.</p>
+<p>Numpy-vectorized for el argument.  Note that this is not
+an efficient vectorization, and only the last calculated value is
+stored for use in the coordinate conversion functions.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="qpoint.qpoint_class.QPoint.reset_rates">
+<code class="descname">reset_rates</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/qpoint/qpoint_class.html#QPoint.reset_rates"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#qpoint.qpoint_class.QPoint.reset_rates" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reset update counters for each state.  Useful to force an updated
+correction term at the beginning of each chunk.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="qpoint.qpoint_class.QPoint.rotate_coord">
+<code class="descname">rotate_coord</code><span class="sig-paren">(</span><em>ra, dec, pa=None, sin2psi=None, cos2psi=None, coord=[‘C’, ‘G’], inplace=True, **kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/qpoint/qpoint_class.html#QPoint.rotate_coord"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#qpoint.qpoint_class.QPoint.rotate_coord" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rotate coordinates from one coordinate system to another.
+Supported coordinates:</p>
+<p>C: celestial (equatorial) coordinates
+G: galactic coordinates</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>dec</strong><strong>, </strong><strong>pa</strong> (<em>ra</em><em>,</em>) – – or –</li>
+<li><strong>dec</strong><strong>, </strong><strong>sin2psi</strong><strong>, </strong><strong>cos2psi</strong> (<em>ra</em><em>,</em>) – arrays of coordinates, of shape (n,)
+If none of pa, sin2psi or cos2psi are supplied,
+pa = 0 is assumed.</li>
+<li><strong>coord</strong> (<em>list</em><em>, </em><em>optional</em>) – 2-element list of input and output coordinates.
+Supported systems: C, G.</li>
+<li><strong>inplace</strong> (<em>bool</em><em>, </em><em>optional</em>) – If True, apply the rotation in-place on the input quaternion.
+Otherwise, return a copy of the input array.  Default: True.</li>
+<li><strong>keyword arguments are passed to the QMap.set method.</strong> (<em>Remaining</em>) – </li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><ul class="simple">
+<li><strong>ra, dec, pa</strong> (<em>array_like</em>) – – or –</li>
+<li><strong>ra, dec, sin2psi, cos2psi</strong> (<em>array_like</em>) – rotated coordinate arrays, same form as input</li>
+</ul>
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="qpoint.qpoint_class.QPoint.rotate_map">
+<code class="descname">rotate_map</code><span class="sig-paren">(</span><em>map_in, coord=[‘C’, ‘G’], map_out=None, interp_pix=True, **kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/qpoint/qpoint_class.html#QPoint.rotate_map"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#qpoint.qpoint_class.QPoint.rotate_map" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rotate a polarized npix-x-3 map from one coordinate system to another.
+Supported coordinates:</p>
+<p>C = celestial (J2000)
+G = galactic</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="qpoint.qpoint_class.QPoint.rotate_quat">
+<code class="descname">rotate_quat</code><span class="sig-paren">(</span><em>quat, coord=[‘C’, ‘G’], inplace=True, **kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/qpoint/qpoint_class.html#QPoint.rotate_quat"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#qpoint.qpoint_class.QPoint.rotate_quat" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rotate a quaternion from one coordinate system to another.
+Supported coordinates:</p>
+<p>C: celestial (equatorial) coordinates
+G: galactic coordinates</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>quat</strong> (<em>array_like</em>) – array of quaternions, of shape (n, 4)</li>
+<li><strong>coord</strong> (<em>list</em><em>, </em><em>optional</em>) – 2-element list of input and output coordinates</li>
+<li><strong>inplace</strong> (<em>bool</em><em>, </em><em>optional</em>) – If True, apply the rotation in-place on the input quaternion.
+Otherwise, return a copy of the input array.  Default: True.</li>
+<li><strong>keyword arguments are passed to the QMap.set method.</strong> (<em>Remaining</em>) – </li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>quat</strong> – rotated quaternion array</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">array_like</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="qpoint.qpoint_class.QPoint.set">
+<code class="descname">set</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/qpoint/qpoint_class.html#QPoint.set"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#qpoint.qpoint_class.QPoint.set" title="Permalink to this definition">¶</a></dt>
+<dd><p>Available keywords are:</p>
+<ul class="simple">
+<li>Correction rates:
+NB: these can be ‘never’ (-999), ‘once’ (-1), ‘always’ (0) or seconds</li>
+</ul>
+<dl class="docutils">
+<dt>rate_daber     Rate at which the diurnal aberration correction is</dt>
+<dd>applied (NB: this can only be applied always or never)</dd>
+</dl>
+<p>rate_lonlat    Rate at which observer’s lon and lat are updated
+rate_wobble    Rate at which the polar motion correction is updated</p>
+<blockquote>
+<div>(NB: these are not estimated for dates beyond a year
+from now)</div></blockquote>
+<dl class="docutils">
+<dt>rate_dut1      Rate at which the ut1-utc correction is updated</dt>
+<dd>(NB: this is not estimated for dates beyond a year from
+now)</dd>
+</dl>
+<p>rate_erot      Rate at which the earth’s rotation angle is updated
+rate_npb       Rate at which the nutation/precession/frame-bias terms</p>
+<blockquote>
+<div>are updated</div></blockquote>
+<dl class="docutils">
+<dt>rate_aaber     Rate at which the annual aberration correction</dt>
+<dd>(due to the earth’s orbital velocity) is updated</dd>
+<dt>rate_ref       Rate at which the refaction correction is updated</dt>
+<dd>(NB: this correction can also be updated manually – see
+refraction)</dd>
+</dl>
+<ul class="simple">
+<li>Options:</li>
+</ul>
+<dl class="docutils">
+<dt>accuracy       If ‘low’, use a truncated form (2000b) for the NPB</dt>
+<dd>correction, which is much faster but less accurate.
+If ‘high’ (default), use the full 2006/2000a form.</dd>
+<dt>mean_aber      If True, apply the aberration correction as an average</dt>
+<dd>for the entire field of view.  This is gives a 1-2
+arcsec deviation at the edges of the SPIDER field of
+view.</dd>
+<dt>fast_math      If True, use polynomial approximations for trig</dt>
+<dd>functions</dd>
+</dl>
+<p>polconv        Specify the ‘cosmo’ or ‘iau’ polarization convention
+pix_order      ‘nest’ or ‘ring’ for healpix pixel ordering
+interp_pix     If True, interpolate between pixels in scanning the</p>
+<blockquote>
+<div>source map.</div></blockquote>
+<dl class="docutils">
+<dt>fast_pix       If True, use vec2pix to get pixel number directly from</dt>
+<dd>the quaternion instead of ang2pix from ra/dec.</dd>
+</dl>
+<p>error_missing  If True, raise an error if reading/writing missing pixels.
+nan_missing    If True, fill samples from missing pixels with NaN.</p>
+<blockquote>
+<div>Only used if error_missing is False.</div></blockquote>
+<dl class="docutils">
+<dt>interp_missing If True and interp_pix is True, drop missing neighbors</dt>
+<dd>and reweight remaining neighbors.  Overrides nan_missing.</dd>
+</dl>
+<p>num_threads    Number of threads for openMP bore2map computation</p>
+<ul class="simple">
+<li>Weather:</li>
+</ul>
+<p>temperature    temperature, Celcius
+pressure       pressure, mbar
+humidity       relative humidity, fraction
+frequency      observer frequency, GHz</p>
+<ul class="simple">
+<li>Parameters:</li>
+</ul>
+<p>dut1           UT1 correction
+ref_delta      Refraction correction</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="qpoint.qpoint_class.check_input">
+<code class="descclassname">qpoint.qpoint_class.</code><code class="descname">check_input</code><span class="sig-paren">(</span><em>name</em>, <em>arg</em>, <em>shape=None</em>, <em>quat=False</em>, <em>dtype=&lt;type ‘numpy.float64’&gt;</em>, <em>inplace=True</em>, <em>fill=0</em>, <em>allow_transpose=True</em>, <em>allow_tuple=True</em>, <em>output=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/qpoint/_libqpoint.html#check_input"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#qpoint.qpoint_class.check_input" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure input argument is an aligned array of the right type and shape.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>name</strong> (<em>string</em>) – Name of the argument</li>
+<li><strong>arg</strong> (<em>array_like</em>) – The argument itself</li>
+<li><strong>shape</strong> (<em>tuple</em><em>, </em><em>optional</em>) – If supplied, ensure <cite>arg</cite> has this shape.</li>
+<li><strong>quat</strong> (<em>bool</em><em>, </em><em>optional</em>) – If True, ensure that the last dimension of the array has length 4.</li>
+<li><strong>dtype</strong> (<em>numpy.dtype</em><em>, </em><em>optional</em>) – Ensure <cite>arg</cite> is of this dtype.  Default: numpy.double.</li>
+<li><strong>inplace</strong> (<em>bool</em><em>, </em><em>optional</em>) – If False make sure that a copy of the input <cite>arg</cite> is made prior to
+returning.  Otherwise, the output <cite>arg</cite> may share memory with the
+input.</li>
+<li><strong>fill</strong> (<em>scalar</em><em>, </em><em>optional</em>) – If the input is missing or empty, fill with this value.
+If None, leave the array empty.</li>
+<li><strong>allow_transpose</strong> (<em>bool</em><em>, </em><em>optional</em>) – If True, transpose the input array if the transposed shape matches
+<cite>shape</cite>.</li>
+<li><strong>allow_tuple</strong> (<em>bool</em><em>, </em><em>optional</em>) – If True, <cite>numpy.vstack</cite> the input <cite>arg</cite> if it is a tuple.</li>
+<li><strong>output</strong> (<em>bool</em><em>, </em><em>optional</em>) – If True, ensure that the output <cite>arg</cite> is a writeable array.
+Otherwise, the array is only ensured to be aligned and
+C-contiguous.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Aligned, contiguous and properly typed and shaped array for
+passing to the C library.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">arg</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="qpoint.qpoint_class.check_inputs">
+<code class="descclassname">qpoint.qpoint_class.</code><code class="descname">check_inputs</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/qpoint/_libqpoint.html#check_inputs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#qpoint.qpoint_class.check_inputs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure that a group of input arguments have the same shape by broadcasting.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>args</strong> – A list of broadcastable array_like arguments.</li>
+<li><strong>kwargs</strong> – Dictionary of arguments to pass to <cite>check_input</cite>.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">A list of broadcast and properly aligned/shaped/typed arrays for
+passing to the C library as a set of timestreams.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">args</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="qpoint.qpoint_class.check_output">
+<code class="descclassname">qpoint.qpoint_class.</code><code class="descname">check_output</code><span class="sig-paren">(</span><em>name</em>, <em>arg=None</em>, <em>shape=None</em>, <em>quat=False</em>, <em>dtype=&lt;type ‘numpy.float64’&gt;</em>, <em>inplace=True</em>, <em>fill=None</em>, <em>allow_transpose=True</em>, <em>allow_tuple=True</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/qpoint/_libqpoint.html#check_output"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#qpoint.qpoint_class.check_output" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure that the output argument is properly aligned/shaped/typed.
+Check input kwargs to see if a pointer to the output array
+has been passed in.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>name</strong> (<em>string</em>) – Name of the argument</li>
+<li><strong>arg</strong> (<em>array_like</em><em>, </em><em>optional</em>) – The argument itself.  If not supplied, kwargs is checked.</li>
+<li><strong>shape</strong> (<em>tuple</em><em>, </em><em>optional</em>) – If supplied, ensure <cite>arg</cite> has this shape.  If <cite>arg</cite> is None,
+this argument is required.</li>
+<li><strong>dtype</strong> (<em>numpy.dtype</em><em>, </em><em>optional</em>) – Ensure <cite>arg</cite> is of this dtype.  Default: numpy.double.</li>
+<li><strong>inplace</strong> (<em>bool</em><em>, </em><em>optional</em>) – If False make sure that a copy of the input <cite>arg</cite> is made prior to
+returning.  Otherwise, the output <cite>arg</cite> may share memory with the
+input.</li>
+<li><strong>fill</strong> (<em>scalar</em><em>, </em><em>optional</em>) – If the input is missing or empty, fill with this value.
+If None, leave the array empty.</li>
+<li><strong>allow_transpose</strong> (<em>bool</em><em>, </em><em>optional</em>) – If True, transpose the input array if the transposed shape matches
+<cite>shape</cite>.</li>
+<li><strong>allow_tuple</strong> (<em>bool</em><em>, </em><em>optional</em>) – If True, <cite>numpy.vstack</cite> the input <cite>arg</cite> if it is a tuple.</li>
+<li><strong>kwargs</strong> – Any remaining input arguments.  If <cite>arg</cite> is None,
+<cite>kwargs</cite> is searched for the <cite>name</cite> key.  If not found, a
+an empty array is created of the appropriate shape.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Aligned, contiguous, writeable and properly typed and shaped array
+for passing to the C library.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">arg</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="module-qpoint.tools">
+<span id="qpoint-tools-module"></span><h2>qpoint.tools module<a class="headerlink" href="#module-qpoint.tools" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="qpoint.tools.refraction">
+<code class="descclassname">qpoint.tools.</code><code class="descname">refraction</code><span class="sig-paren">(</span><em>el</em>, <em>temp</em>, <em>press</em>, <em>hum</em>, <em>freq=150.0</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/qpoint/tools.html#refraction"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#qpoint.tools.refraction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Standalone function for calculating the refraction correction without
+storing any parameters.  Useful for testing, numpy-vectorized.</p>
+<p>Arguments:</p>
+<p>el           elevation angle, degrees
+temperature  temperature, Celcius
+pressure     pressure, mbar
+humidity     humidity, fraction
+frequency    array frequency, GHz</p>
+<p>Output:</p>
+<p>delta        refraction correction, in degrees</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-qpoint">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-qpoint" title="Permalink to this headline">¶</a></h2>
+<p>qpoint</p>
+<p>A lightweight library for efficient pointing.</p>
+<p>Based on M. Nolta’s libactpol.
+Uses the SOFA Software Collection, available from <a class="reference external" href="http://www.iausofa.org/">http://www.iausofa.org/</a></p>
+<dl class="function">
+<dt id="qpoint.version">
+<code class="descclassname">qpoint.</code><code class="descname">version</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/qpoint.html#version"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#qpoint.version" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Welcome to qpoint’s documentation!"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">qpoint 1.9.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2017, Alexandra Rahlin.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.2.
+    </div>
+  </body>
+</html>
