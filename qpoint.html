@@ -656,20 +656,35 @@ error if an integer solution is not found.</li>
 <dd><p>Estimate the quaternion for the boresight orientation on the sky given
 the attitude (az/el/pitch/roll), location on the earth (lon/lat) and
 ctime. Input vectors must be numpy-array-like and of the same shape.</p>
-<p>Arguments:</p>
-<p>az         boresight azimuth (degrees)
-el         boresight elevation (degrees)
-pitch      boresight pitch (degrees); can be None
-roll       boresight pitch (degrees); can be None
-lon        observer longitude (degrees)
-lat        observer latitude (degrees)
-ctime      unix time in seconds UTC
-q          output quaternion array initialized by user</p>
-<p>Keywork arguments:</p>
-<p>Any keywords accepted by the QPoint.set function can also be passed
-here, and will be processed prior to calculation.</p>
-<p>Output:</p>
-<p>q          Nx4 numpy array of quaternions for each supplied timestamp.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>az</strong> (<em>array_like</em>) – Boresight azimuth in degrees</li>
+<li><strong>el</strong> (<em>array_like</em>) – Boresight elevation in degrees</li>
+<li><strong>pitch</strong> (<em>array_like</em>) – Boresight pitch in degrees.  If <cite>None</cite>, this term is ignored.</li>
+<li><strong>roll</strong> (<em>array_like</em>) – Boresight roll in degrees.  If <cite>None</cite>, this term is ignored.</li>
+<li><strong>lon</strong> (<em>array_like</em>) – Observer longitude in degrees</li>
+<li><strong>lat</strong> (<em>array_like</em>) – Observer latitude in degrees</li>
+<li><strong>ctime</strong> (<em>array_like</em>) – Unix time in seconds UTC</li>
+<li><strong>q</strong> (<em>array_like</em>) – Output quaternion array initialized by user.  Supply this
+for in-place computation.</li>
+<li><strong>Keywords</strong> – </li>
+<li><strong>--------</strong> – </li>
+<li><strong>keywords accepted by the QPoint.set function can also be passed</strong> (<em>Any</em>) – </li>
+<li><strong>and will be processed prior to calculation.</strong> (<em>here</em><em>,</em>) – </li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>q</strong> – Nx4 numpy array of quaternions for each supplied timestamp.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">array_like</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
@@ -681,46 +696,69 @@ the earth (lon/lat) and UTC time.  Input vectors must be
 numpy-array-like and of the same shape. Detector offsets are defined
 assuming the boresight is pointed toward the horizon, and that the
 boresight polarization axis is along the horizontal.</p>
-<p>Arguments:</p>
-<p>delta_az   azimuthal offset of the detector (degrees)
-delta_el   elevation offset of the detector (degrees)
-delta_psi  polarization offset of the detector (degrees)
-az         boresight azimuth (degrees)
-el         boresight elevation (degrees)
-pitch      boresight pitch (degrees); can be None
-roll       boresight roll (degrees); can be None
-lon        observer longitude (degrees)
-lat        observer latitude (degrees)
-ctime      unix time in seconds UTC</p>
-<p>Keyword arguments:</p>
-<p>hwp        HWP angles (degrees)
-sindec     If True, return sin(dec) instead of dec in degrees</p>
-<blockquote>
-<div>(default False)</div></blockquote>
-<p>Any keywords accepted by the QPoint.set function can also be passed
-here, and will be processed prior to calculation.</p>
-<p>Outputs:</p>
-<p>ra         detector right ascension (degrees)
-dec/sindec detector declination (degrees)
-sin2psi    detector polarization orientation
-cos2psi    detector polarization orientation</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>delta_az</strong> (<em>float</em>) – Azimuthal offset of the detector in degrees</li>
+<li><strong>delta_el</strong> (<em>float</em>) – Elevation offset of the detector in degrees</li>
+<li><strong>delta_psi</strong> (<em>float</em>) – Polarization offset of the detector in degrees</li>
+<li><strong>az</strong> (<em>array_like</em>) – Boresight azimuth in degrees</li>
+<li><strong>el</strong> (<em>array_like</em>) – Boresight elevation in degrees</li>
+<li><strong>pitch</strong> (<em>array_like</em>) – Boresight pitch in degrees.  If None, this term is ignored.</li>
+<li><strong>roll</strong> (<em>array_like</em>) – Boresight roll in degrees.  If None, this term is ignored.</li>
+<li><strong>lon</strong> (<em>array_like</em>) – Observer longitude in degrees.</li>
+<li><strong>lat</strong> (<em>array_like</em>) – Observer latitude in degrees.</li>
+<li><strong>ctime</strong> (<em>array_like</em>) – Unix time in seconds UTC</li>
+<li><strong>Keywords</strong> – </li>
+<li><strong>--------</strong> – </li>
+<li><strong>hwp</strong> (<em>array_like</em>) – HWP angles in degrees</li>
+<li><strong>sindec</strong> (<em>bool</em>) – If <cite>True</cite>, return sin(dec) instead of dec in degrees (default False)</li>
+<li><strong>keywords accepted by the QPoint.set function can also be passed</strong> (<em>Any</em>) – </li>
+<li><strong>and will be processed prior to calculation.</strong> (<em>here</em><em>,</em>) – </li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><ul class="simple">
+<li><strong>ra</strong> (<em>array_like</em>) – Detector right ascension in degrees</li>
+<li><strong>dec/sindec</strong> (<em>array_like</em>) – Detector declination in degrees</li>
+<li><strong>sin2psi</strong> (<em>array_like</em>) – Detector polarization orientation</li>
+<li><strong>cos2psi</strong> (<em>array_like</em>) – Detector polarization orientation</li>
+</ul>
+</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="qpoint.qpoint_class.QPoint.bore2dipole">
 <code class="descname">bore2dipole</code><span class="sig-paren">(</span><em>q_off</em>, <em>ctime</em>, <em>q_bore</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/qpoint/qpoint_class.html#QPoint.bore2dipole"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#qpoint.qpoint_class.QPoint.bore2dipole" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculate dipole timestream for given offset and boresight pointing.</p>
-<p>Arguments:</p>
-<dl class="docutils">
-<dt>q_off      Detector offset quaternion for a single detector,</dt>
-<dd>calculated using det_offset</dd>
-</dl>
-<p>ctime      array of unix times in seconds UTC
-q_bore     Nx4 array of quaternions encoding the boresight orientation</p>
-<blockquote>
-<div>on the sky (as output by azel2radec)</div></blockquote>
-<p>Outputs:</p>
-<p>dipole     dipole amplitude in K</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>q_off</strong> (<em>quaternion</em>) – Detector offset quaternion for a single detector, calculated using
+<cite>det_offset</cite></li>
+<li><strong>ctime</strong> (<em>array_like</em>) – Array of unix times in seconds UTC</li>
+<li><strong>q_bore</strong> (<em>quaternion</em><em> or </em><em>array of quaternions</em>) – Array of quaternions encoding the boresight orientation
+on the sky (as output by <cite>azel2radec</cite> or similar).
+Same length as <cite>ctime</cite>.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>dipole</strong> – Dipole amplitude in K</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">array_like</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
@@ -730,28 +768,37 @@ q_bore     Nx4 array of quaternions encoding the boresight orientation</p>
 boresight.  Detector offsets are defined assuming the boresight is
 pointed toward the horizon, and that the boresight polarization axis is
 along the vertical.</p>
-<p>Arguments:</p>
-<dl class="docutils">
-<dt>q_off      Detector offset quaternion for a single detector,</dt>
-<dd>calculated using det_offset</dd>
-</dl>
-<p>ctime      array of unix times in seconds UTC
-q_bore     Nx4 array of quaternions encoding the boresight orientation</p>
-<blockquote>
-<div>on the sky (as output by azel2radec)</div></blockquote>
-<p>Keyword arguments:</p>
-<dl class="docutils">
-<dt>q_hwp      HWP angle quaternions calculated using hwp_quat</dt>
-<dd>must be same shape as q_bore</dd>
-</dl>
-<p>nside      map dimension
-pol        if False, return only the pixel timestream</p>
-<p>Any keywords accepted by the QPoint.set function can also be passed
-here, and will be processed prior to calculation.</p>
-<p>Outputs:</p>
-<p>pix        detector pixel number
-sin2psi    detector polarization orientation (if pol is True)
-cos2psi    detector polarization orientation (if pol is True)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>q_off</strong> (<em>quaternion</em>) – Detector offset quaternion for a single detector,
+calculated using <cite>det_offset</cite>.</li>
+<li><strong>ctime</strong> (<em>array_like</em>) – Unix times in seconds UTC</li>
+<li><strong>q_bore</strong> (<em>quaternion</em><em> or </em><em>array of quaternions</em>) – Nx4 array of quaternions encoding the boresight orientation
+on the sky (as output by <cite>azel2radec</cite> or equivalent)</li>
+<li><strong>Keywords</strong> – </li>
+<li><strong>--------</strong> – </li>
+<li><strong>q_hwp</strong> (<em>quaternion</em><em> or </em><em>array of quaternions</em>) – HWP angle quaternions calculated using <cite>hwp_quat</cite>.
+Must be same shape as <cite>q_bore</cite>.</li>
+<li><strong>nside</strong> (<em>int</em>) – HEALpix map dimension</li>
+<li><strong>pol</strong> (<em>bool</em>) – If <cite>False</cite>, return only the pixel timestream</li>
+<li><strong>keywords accepted by the QPoint.set function can also be passed</strong> (<em>Any</em>) – </li>
+<li><strong>and will be processed prior to calculation.</strong> (<em>here</em><em>,</em>) – </li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><ul class="simple">
+<li><strong>pix</strong> (<em>array_like</em>) – Detector pixel number</li>
+<li><strong>sin2psi</strong> (<em>array_like</em>)</li>
+<li><strong>cos2psi</strong> (<em>array_like</em>) – Detector polarization orientation, if <cite>pol</cite> is <cite>True</cite>.</li>
+</ul>
+</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
@@ -761,60 +808,95 @@ cos2psi    detector polarization orientation (if pol is True)</p>
 boresight.  Detector offsets are defined assuming the boresight is
 pointed toward the horizon, and that the boresight polarization axis is
 along the vertical.</p>
-<p>Arguments:</p>
-<dl class="docutils">
-<dt>q_off      Detector offset quaternion for a single detector,</dt>
-<dd>calculated using det_offset</dd>
-</dl>
-<p>ctime      array of unix times in seconds UTC
-q_bore     Nx4 array of quaternions encoding the boresight orientation</p>
-<blockquote>
-<div>on the sky (as output by azel2radec)</div></blockquote>
-<p>Keyword arguments:</p>
-<dl class="docutils">
-<dt>q_hwp      HWP angle quaternions calculated using hwp_quat</dt>
-<dd>must be same shape as q_bore</dd>
-<dt>sindec     If True, return sin(dec) instead of dec in degrees</dt>
-<dd>(default False)</dd>
-</dl>
-<p>return_pa  If True, return pa instead of sin2psi / cos2psi</p>
-<p>Any keywords accepted by the QPoint.set function can also be passed
-here, and will be processed prior to calculation.</p>
-<p>Outputs:</p>
-<p>ra         detector right ascension (degrees)
-dec/sindec detector declination (degrees) or sin(dec)
-sin2psi    detector polarization orientation
-cos2psi    detector polarization orientation</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>q_off</strong> (<em>quaternion</em>) – Detector offset quaternion for a single detector, calculated using
+<cite>det_offset</cite>.</li>
+<li><strong>ctime</strong> (<em>array_like</em>) – Unix time in seconds UTC</li>
+<li><strong>q_bore</strong> (<em>quaternion</em><em> or </em><em>array of quaternions</em>) – Nx4 array of quaternions encoding the boresight orientation
+on the sky (as output by <cite>azel2radec</cite> or equivalent)</li>
+<li><strong>Keywords</strong> – </li>
+<li><strong>--------</strong> – </li>
+<li><strong>q_hwp</strong> (<em>quaternion</em><em> or </em><em>array of quaternions</em>) – HWP angle quaternions calculated using <cite>hwp_quat</cite>.
+Must be same shape as <cite>q_bore</cite>.</li>
+<li><strong>sindec</strong> (<em>bool</em>) – If <cite>True</cite>, return sin(dec) instead of dec in degrees
+(default False).</li>
+<li><strong>return_pa</strong> (<em>bool</em>) – If <cite>True</cite>, return pa instead of sin2psi / cos2psi</li>
+<li><strong>keywords accepted by the QPoint.set function can also be passed</strong> (<em>Any</em>) – </li>
+<li><strong>and will be processed prior to calculation.</strong> (<em>here</em><em>,</em>) – </li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><ul class="simple">
+<li><strong>ra</strong> (<em>array_like</em>) – Detector right ascension in degrees</li>
+<li><strong>dec/sindec</strong> (<em>array_like</em>) – Detector declination in degrees or sin(dec) if <cite>sindec</cite> is <cite>True</cite>.</li>
+<li><strong>pa/sin2psi</strong> (<em>array_like</em>) – Detector polarization orientation if <cite>return_pa</cite> is <cite>True</cite>, or
+sin(2*pa) if <cite>return_pa</cite> is <cite>False</cite>.</li>
+<li><strong>cos2psi</strong> (<em>array_like</em>) – detector polarization orientation cos(2*pa), if <cite>return_pa</cite> is <cite>False</cite>.</li>
+</ul>
+</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="qpoint.qpoint_class.QPoint.bore_offset">
 <code class="descname">bore_offset</code><span class="sig-paren">(</span><em>q_bore</em>, <em>ang1=None</em>, <em>ang2=None</em>, <em>ang3=None</em>, <em>post=False</em>, <em>inplace=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/qpoint/qpoint_class.html#QPoint.bore_offset"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#qpoint.qpoint_class.QPoint.bore_offset" title="Permalink to this definition">¶</a></dt>
 <dd><p>Apply a fixed or variable offset to the boresight quaternion.</p>
-<p>Arguments:</p>
-<p>q_bore    boresight pointing quaternion
-ang1      azimuthal or ra offset (degrees), scalar or array
-ang2      elevation or dec offset (degrees), scalar or array
-ang3      position angle offset (degrees), scalar or array
-post      If False, apply offset as an az/el/pa pre-rotation</p>
-<blockquote>
-<div>If True, apply offset as an ra/dec/pa post-rotation</div></blockquote>
-<p>inplace   If True, apply the rotation in-place in memory.</p>
-<p>Outputs:</p>
-<p>q_bore    Offset boresight quaternion</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>q_bore</strong> (<em>array_like</em>) – boresight pointing quaternion</li>
+<li><strong>ang1</strong> (<em>array_like</em>) – Azimuthal or ra offset in degrees</li>
+<li><strong>ang2</strong> (<em>array_like</em>) – Elevation or dec offset in degrees</li>
+<li><strong>ang3</strong> (<em>array_like</em>) – Position angle offset in degrees</li>
+<li><strong>post</strong> (<em>bool</em>) – If False, apply offset as an az/el/pa pre-rotation
+If True, apply offset as an ra/dec/pa post-rotation</li>
+<li><strong>inplace</strong> (<em>bool</em>) – If True, apply the rotation in-place in memory.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>q_bore</strong> – Offset boresight quaternion</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">array_like</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="qpoint.qpoint_class.QPoint.det_offset">
 <code class="descname">det_offset</code><span class="sig-paren">(</span><em>delta_az</em>, <em>delta_el</em>, <em>delta_psi</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/qpoint/qpoint_class.html#QPoint.det_offset"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#qpoint.qpoint_class.QPoint.det_offset" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return quaternion corresponding to the requested detector offset.
-Vectorized.</p>
-<p>Arguments:</p>
-<p>delta_az   azimuthal offset of the detector (degrees)
-delta_el   elevation offset of the detector (degrees)
-delta_psi  polarization offset of the detector (degrees)</p>
-<p>Outputs:</p>
-<p>q          detector offset quaternion for each detector</p>
+<dd><p>Return quaternion corresponding to the requested detector centroid
+offset from boresight.  Vectorized.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>delta_az</strong> (<em>array_like</em>) – Azimuthal centroid offset of the detector in degrees</li>
+<li><strong>delta_el</strong> (<em>array_like</em>) – Elevation centroid offset of the detector in degrees</li>
+<li><strong>delta_psi</strong> (<em>array_like</em>) – Polarization offset of the detector from vertical in degrees</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>q</strong> – Detector centroid offset quaternion for each detector</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">array_like</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
@@ -822,15 +904,29 @@ delta_psi  polarization offset of the detector (degrees)</p>
 <code class="descname">dipole</code><span class="sig-paren">(</span><em>ctime</em>, <em>ra</em>, <em>dec</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/qpoint/qpoint_class.html#QPoint.dipole"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#qpoint.qpoint_class.QPoint.dipole" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return dipole amplitude in the given equatorial direction.
 Vectorized.</p>
-<p>Arguments:</p>
-<p>ctime      unix time in seconds UTC
-ra         right ascension on the sky
-dec        declination on the sky</p>
-<p>Keyword arguments:</p>
-<p>Any keywords accepted by the QPoint.set function can also be passed
-here, and will be processed prior to calculation.</p>
-<p>Outputs:</p>
-<p>dipole     dipole amplitude in K</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>ctime</strong> (<em>array_like</em>) – Unix time in seconds UTC</li>
+<li><strong>ra</strong> (<em>array_like</em>) – Right ascension on the sky, in degrees.</li>
+<li><strong>dec</strong> (<em>array_like</em>) – Declination on the sky, in degrees</li>
+<li><strong>Keywords</strong> – </li>
+<li><strong>--------</strong> – </li>
+<li><strong>keywords accepted by the QPoint.set function can also be passed</strong> (<em>Any</em>) – </li>
+<li><strong>and will be processed prior to calculation.</strong> (<em>here</em><em>,</em>) – </li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>dipole</strong> – Dipole amplitude in K</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">array_like</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
@@ -844,7 +940,7 @@ here, and will be processed prior to calculation.</p>
 <code class="descname">get</code><span class="sig-paren">(</span><em>*args</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/qpoint/qpoint_class.html#QPoint.get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#qpoint.qpoint_class.QPoint.get" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a dictionary of the requested state parameters.  If no
 parameters are supplied, then all are returned.  If a single parameter
-is supplied, then just that value is returned.  See QPoint.set for a
+is supplied, then just that value is returned.  See <cite>QPoint.set</cite> for a
 list of parameter names.</p>
 <p>Can also select ‘options’, ‘rates’, ‘weather’, or ‘params’ to return
 all of that subset of parameters.</p>
@@ -889,27 +985,48 @@ Default: False.</li>
 <dl class="method">
 <dt id="qpoint.qpoint_class.QPoint.gmst">
 <code class="descname">gmst</code><span class="sig-paren">(</span><em>ctime</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/qpoint/qpoint_class.html#QPoint.gmst"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#qpoint.qpoint_class.QPoint.gmst" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return Greenwich mean sidereal time for given ctimes and longitudes.
+<dd><p>Return Greenwich mean sidereal time for given ctimes.
 Vectorized.</p>
-<p>Arguments:</p>
-<p>ctime      unix time in seconds UTC</p>
-<p>Keyword arguments:</p>
-<p>Any keywords accepted by the QPoint.set function can also be passed
-here, and will be processed prior to calculation.</p>
-<p>Outputs:</p>
-<p>gmst       Greenwich mean sidereal time of the observer</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>ctime</strong> (<em>array_like</em>) – Unix time in seconds UTC</li>
+<li><strong>Keywords</strong> – </li>
+<li><strong>--------</strong> – </li>
+<li><strong>keywords accepted by the QPoint.set function can also be passed</strong> (<em>Any</em>) – </li>
+<li><strong>and will be processed prior to calculation.</strong> (<em>here</em><em>,</em>) – </li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>gmst</strong> – Greenwich mean sidereal time of the observer</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">array_like</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="qpoint.qpoint_class.QPoint.hwp_quat">
 <code class="descname">hwp_quat</code><span class="sig-paren">(</span><em>theta</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/qpoint/qpoint_class.html#QPoint.hwp_quat"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#qpoint.qpoint_class.QPoint.hwp_quat" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return quaternion corresponding to rotation by 2*theta,
-where theta is the physical waveplate angle.
-Vectorized.</p>
-<p>Arguments:</p>
-<p>theta      hwp physical angle (degrees)</p>
-<p>Outputs:</p>
-<p>q          quaternion for each hwp angle</p>
+<dd><p>Return quaternion corresponding to rotation by 2 * theta,
+where theta is the physical waveplate angle. Vectorized.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>theta</strong> (<em>array_like</em>) – HWP physical angle in degrees</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><strong>q</strong> – Quaternion for each hwp angle</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">array_like</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
@@ -917,31 +1034,60 @@ Vectorized.</p>
 <code class="descname">lmst</code><span class="sig-paren">(</span><em>ctime</em>, <em>lon</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/qpoint/qpoint_class.html#QPoint.lmst"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#qpoint.qpoint_class.QPoint.lmst" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return local mean sidereal time for given ctimes and longitudes.
 Vectorized.</p>
-<p>Arguments:</p>
-<p>ctime      unix time in seconds UTC
-lon        observer longitude (degrees)</p>
-<p>Keyword arguments:</p>
-<p>Any keywords accepted by the QPoint.set function can also be passed
-here, and will be processed prior to calculation.</p>
-<p>Outputs:</p>
-<p>lmst       local mean sidereal time of the observer</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>ctime</strong> (<em>array_like</em>) – Unix time in seconds UTC</li>
+<li><strong>lon</strong> (<em>array_like</em>) – Observer longitude (degrees)</li>
+<li><strong>Keywords</strong> – </li>
+<li><strong>--------</strong> – </li>
+<li><strong>keywords accepted by the QPoint.set function can also be passed</strong> (<em>Any</em>) – </li>
+<li><strong>and will be processed prior to calculation.</strong> (<em>here</em><em>,</em>) – </li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>lmst</strong> – Local mean sidereal time of the observer</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">array_like</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="qpoint.qpoint_class.QPoint.load_bulletin_a">
 <code class="descname">load_bulletin_a</code><span class="sig-paren">(</span><em>filename, columns=[‘mjd’, ‘dut1’, ‘x’, ‘y’], **kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/qpoint/qpoint_class.html#QPoint.load_bulletin_a"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#qpoint.qpoint_class.QPoint.load_bulletin_a" title="Permalink to this definition">¶</a></dt>
 <dd><p>Load IERS Bulletin A from file and store in memory.  The file must be
-readable using numpy.loadtxt with unpack=True, and is assumed to be sorted
-by mjd.</p>
-<p>Keyword arguments:</p>
-<dl class="docutils">
-<dt>columns    list of columns as they appear in the file.</dt>
-<dd>A KeyError is raise if the list does not contain
-each of [‘mjd’, ‘dut1’, ‘x’, ‘y’]</dd>
-</dl>
-<p>Any other keyword arguments are passed to the numpy.loadtxt function</p>
-<p>Output:</p>
-<p>mjd, dut1, x, y</p>
+readable using <cite>numpy.loadtxt</cite> with <cite>unpack=True</cite>, and is assumed to be
+sorted by mjd.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>filename</strong> (<em>string</em>) – Name of the text file containing IERS Bulletin A parameters.</li>
+<li><strong>columns</strong> (<em>list of strings</em>) – list of columns as they appear in the file.
+A KeyError is raise if the list does not contain
+each of [‘mjd’, ‘dut1’, ‘x’, ‘y’].</li>
+<li><strong>other keyword arguments are passed to the numpy.loadtxt function</strong> (<em>Any</em>) – </li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><ul class="simple">
+<li><strong>mjd</strong> (<em>array_like</em>) – Modified Julian date</li>
+<li><strong>dut1</strong> (<em>array_like</em>) – UT1-UTC time correction</li>
+<li><strong>x</strong> (<em>array_like</em>)</li>
+<li><strong>y</strong> (<em>array_like</em>) – Polar motion corrections</li>
+</ul>
+</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
@@ -983,22 +1129,39 @@ quaternion and nside</p>
 
 <dl class="method">
 <dt id="qpoint.qpoint_class.QPoint.refraction">
-<code class="descname">refraction</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/qpoint/qpoint_class.html#QPoint.refraction"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#qpoint.qpoint_class.QPoint.refraction" title="Permalink to this definition">¶</a></dt>
-<dd><p>Update refraction parameters</p>
-<p>Arguments (positional or keyword):</p>
-<p>q            observer orientation in horizon coordinates
-temperature  temperature, Celcius
-pressure     pressure, mbar
-humidity     humidity, fraction
-frequency    array frequency, GHz
-delta        the refraction correction itself, in degrees</p>
-<p>If el is given, then the refraction correction in degrees
+<code class="descname">refraction</code><span class="sig-paren">(</span><em>q</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/qpoint/qpoint_class.html#QPoint.refraction"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#qpoint.qpoint_class.QPoint.refraction" title="Permalink to this definition">¶</a></dt>
+<dd><p>refraction(delta)</p>
+<p>Update refraction parameters</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>q</strong> (<em>quaternion</em><em> or </em><em>array of quaternions</em>) – Observer orientation in horizon coordinates</li>
+<li><strong>temperature</strong> (<em>float</em>) – Ambient temperature, Celcius</li>
+<li><strong>pressure</strong> (<em>float</em>) – Ambient pressure, mbar</li>
+<li><strong>humidity</strong> (<em>float</em>) – Ambient relative humidity, fraction</li>
+<li><strong>frequency</strong> (<em>float</em>) – Observing frequency, GHz</li>
+<li><strong>delta</strong> (<em>float</em>) – The refraction correction itself, in degrees</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>delta</strong> – Refraction correction computed at each input orientation</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">array_like</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Notes</p>
+<p>If <cite>q</cite> is given, then the refraction correction in degrees
 is calculated, stored and returned after updating any other given
 parameters. Otherwise, the correction is returned w/out recalculating.</p>
-<p>Alternatively, if a single numerical argument, or the ‘delta’ keyword
+<p>Alternatively, if a single numerical argument, or the <cite>delta</cite> keyword
 argument is given, then the correction is stored with this value
 instead of being recalculated.</p>
-<p>Numpy-vectorized for el argument.  Note that this is not
+<p>Numpy-vectorized for the <cite>q</cite> argument.  Note that this is not
 an efficient vectorization, and only the last calculated value is
 stored for use in the coordinate conversion functions.</p>
 </dd></dl>
@@ -1087,80 +1250,83 @@ Otherwise, return a copy of the input array.  Default: True.</li>
 <dl class="method">
 <dt id="qpoint.qpoint_class.QPoint.set">
 <code class="descname">set</code><span class="sig-paren">(</span><em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/qpoint/qpoint_class.html#QPoint.set"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#qpoint.qpoint_class.QPoint.set" title="Permalink to this definition">¶</a></dt>
-<dd><p>Available keywords are:</p>
-<ul class="simple">
-<li>Correction rates:
-NB: these can be ‘never’ (-999), ‘once’ (-1), ‘always’ (0) or seconds</li>
+<dd><p>Set computation options.</p>
+<dl class="docutils">
+<dt>rate_daber <span class="classifier-delimiter">:</span> <span class="classifier">{‘never’, ‘once’, ‘always’}, or float</span></dt>
+<dd>Rate at which the diurnal aberration correction is applied in seconds
+(NB: this can only be applied always or never)</dd>
+<dt>rate_lonlat <span class="classifier-delimiter">:</span> <span class="classifier">{‘never’, ‘once’, ‘always’}, or float</span></dt>
+<dd>Rate at which observer’s lon and lat are updated</dd>
+<dt>rate_wobble <span class="classifier-delimiter">:</span> <span class="classifier">{‘never’, ‘once’, ‘always’}, or float</span></dt>
+<dd>Rate at which the polar motion correction is updated
+(NB: these are not estimated for dates beyond a year from now)</dd>
+<dt>rate_dut1 <span class="classifier-delimiter">:</span> <span class="classifier">{‘never’, ‘once’, ‘always’}, or float</span></dt>
+<dd>Rate at which the ut1-utc correction is updated
+(NB: this is not estimated for dates beyond a year from now)</dd>
+<dt>rate_erot <span class="classifier-delimiter">:</span> <span class="classifier">{‘never’, ‘once’, ‘always’}, or float</span></dt>
+<dd>Rate at which the earth’s rotation angle is updated</dd>
+<dt>rate_npb <span class="classifier-delimiter">:</span> <span class="classifier">{‘never’, ‘once’, ‘always’}, or float</span></dt>
+<dd>Rate at which the nutation/precession/frame-bias terms are updated</dd>
+<dt>rate_aaber <span class="classifier-delimiter">:</span> <span class="classifier">{‘never’, ‘once’, ‘always’}, or float</span></dt>
+<dd>Rate at which the annual aberration correction
+(due to the earth’s orbital velocity) is updated</dd>
+<dt>rate_ref <span class="classifier-delimiter">:</span> <span class="classifier">{‘never’, ‘once’, ‘always’}, or float</span></dt>
+<dd>Rate at which the refaction correction is updated
+(NB: this correction can also be updated manually – see <cite>refraction</cite>)</dd>
+</dl>
+<dl class="docutils">
+<dt>accuracy <span class="classifier-delimiter">:</span> <span class="classifier">‘low’ or ‘high’</span></dt>
+<dd>If ‘low’, use a truncated form (2000b) for the NPB correction,
+which is much faster but less accurate. If ‘high’ (default), use
+the full 2006/2000a form.</dd>
+<dt>mean_aber <span class="classifier-delimiter">:</span> <span class="classifier">bool</span></dt>
+<dd>If True, apply the aberration correction as an average for the
+entire field of view.  This is gives a 1-2 arcsec deviation
+at the edges of the SPIDER field of view.</dd>
+<dt>fast_math <span class="classifier-delimiter">:</span> <span class="classifier">bool</span></dt>
+<dd>If True, use polynomial approximations for trig functions</dd>
+<dt>polconv <span class="classifier-delimiter">:</span> <span class="classifier">‘cosmo’ or ‘iau’</span></dt>
+<dd>Specify the ‘cosmo’ or ‘iau’ polarization convention</dd>
+<dt>pix_order <span class="classifier-delimiter">:</span> <span class="classifier">‘nest’ or ‘ring’</span></dt>
+<dd>HEALPix pixel ordering</dd>
+<dt>interp_pix <span class="classifier-delimiter">:</span> <span class="classifier">bool</span></dt>
+<dd>If True, interpolate between pixels in scanning the source map.</dd>
+<dt>fast_pix <span class="classifier-delimiter">:</span> <span class="classifier">bool</span></dt>
+<dd>If True, use <cite>vec2pix</cite> to get pixel number directly from the
+quaternion instead of <cite>ang2pix</cite> from ra/dec.</dd>
+<dt>error_missing <span class="classifier-delimiter">:</span> <span class="classifier">bool</span></dt>
+<dd>If True, raise an error if reading/writing missing pixels.</dd>
+<dt>nan_missing <span class="classifier-delimiter">:</span> <span class="classifier">bool</span></dt>
+<dd>If True, fill samples from missing pixels with NaN.
+Only used if <cite>error_missing</cite> is False.</dd>
+<dt>interp_missing <span class="classifier-delimiter">:</span> <span class="classifier">bool</span></dt>
+<dd>If True and <cite>interp_pix</cite> is True, drop missing neighbors
+and reweight remaining neighbors.  Overrides <cite>nan_missing</cite>.</dd>
+<dt>num_threads <span class="classifier-delimiter">:</span> <span class="classifier">bool</span></dt>
+<dd>Number of openMP threads to use for mapmaking.</dd>
+</dl>
+<dl class="docutils">
+<dt>temperature <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
+<dd>temperature, Celcius</dd>
+<dt>pressure <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
+<dd>pressure, mbar</dd>
+<dt>humidity <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
+<dd>relative humidity, fraction</dd>
+<dt>frequency <span class="classifier-delimiter">:</span> <span class="classifier">float</span></dt>
+<dd>observer frequency, GHz</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>dut1</strong> (<em>float</em>) – UT1 correction</li>
+<li><strong>ref_delta</strong> (<em>float</em>) – Refraction correction</li>
 </ul>
-<dl class="docutils">
-<dt>rate_daber     Rate at which the diurnal aberration correction is</dt>
-<dd>applied (NB: this can only be applied always or never)</dd>
-</dl>
-<p>rate_lonlat    Rate at which observer’s lon and lat are updated
-rate_wobble    Rate at which the polar motion correction is updated</p>
-<blockquote>
-<div>(NB: these are not estimated for dates beyond a year
-from now)</div></blockquote>
-<dl class="docutils">
-<dt>rate_dut1      Rate at which the ut1-utc correction is updated</dt>
-<dd>(NB: this is not estimated for dates beyond a year from
-now)</dd>
-</dl>
-<p>rate_erot      Rate at which the earth’s rotation angle is updated
-rate_npb       Rate at which the nutation/precession/frame-bias terms</p>
-<blockquote>
-<div>are updated</div></blockquote>
-<dl class="docutils">
-<dt>rate_aaber     Rate at which the annual aberration correction</dt>
-<dd>(due to the earth’s orbital velocity) is updated</dd>
-<dt>rate_ref       Rate at which the refaction correction is updated</dt>
-<dd>(NB: this correction can also be updated manually – see
-refraction)</dd>
-</dl>
-<ul class="simple">
-<li>Options:</li>
-</ul>
-<dl class="docutils">
-<dt>accuracy       If ‘low’, use a truncated form (2000b) for the NPB</dt>
-<dd>correction, which is much faster but less accurate.
-If ‘high’ (default), use the full 2006/2000a form.</dd>
-<dt>mean_aber      If True, apply the aberration correction as an average</dt>
-<dd>for the entire field of view.  This is gives a 1-2
-arcsec deviation at the edges of the SPIDER field of
-view.</dd>
-<dt>fast_math      If True, use polynomial approximations for trig</dt>
-<dd>functions</dd>
-</dl>
-<p>polconv        Specify the ‘cosmo’ or ‘iau’ polarization convention
-pix_order      ‘nest’ or ‘ring’ for healpix pixel ordering
-interp_pix     If True, interpolate between pixels in scanning the</p>
-<blockquote>
-<div>source map.</div></blockquote>
-<dl class="docutils">
-<dt>fast_pix       If True, use vec2pix to get pixel number directly from</dt>
-<dd>the quaternion instead of ang2pix from ra/dec.</dd>
-</dl>
-<p>error_missing  If True, raise an error if reading/writing missing pixels.
-nan_missing    If True, fill samples from missing pixels with NaN.</p>
-<blockquote>
-<div>Only used if error_missing is False.</div></blockquote>
-<dl class="docutils">
-<dt>interp_missing If True and interp_pix is True, drop missing neighbors</dt>
-<dd>and reweight remaining neighbors.  Overrides nan_missing.</dd>
-</dl>
-<p>num_threads    Number of threads for openMP bore2map computation</p>
-<ul class="simple">
-<li>Weather:</li>
-</ul>
-<p>temperature    temperature, Celcius
-pressure       pressure, mbar
-humidity       relative humidity, fraction
-frequency      observer frequency, GHz</p>
-<ul class="simple">
-<li>Parameters:</li>
-</ul>
-<p>dut1           UT1 correction
-ref_delta      Refraction correction</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </dd></dl>

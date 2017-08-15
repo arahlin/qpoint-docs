@@ -1,0 +1,289 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Tools &#8212; qpoint 1.9.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.9.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="QMap Class" href="qmap_class.html" /> 
+  </head>
+  <body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="qmap_class.html" title="QMap Class"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">qpoint 1.9.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="qmap_class.html"
+                        title="previous chapter">QMap Class</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/tools.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="tools">
+<h1>Tools<a class="headerlink" href="#tools" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="qpoint.version">
+<code class="descclassname">qpoint.</code><code class="descname">version</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/qpoint.html#version"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#qpoint.version" title="Permalink to this definition">¶</a></dt>
+<dd><p>Print version string</p>
+</dd></dl>
+
+<span class="target" id="module-qpoint.qpoint_class"></span><dl class="function">
+<dt id="qpoint.qpoint_class.check_input">
+<code class="descclassname">qpoint.qpoint_class.</code><code class="descname">check_input</code><span class="sig-paren">(</span><em>name</em>, <em>arg</em>, <em>shape=None</em>, <em>quat=False</em>, <em>dtype=&lt;type ‘numpy.float64’&gt;</em>, <em>inplace=True</em>, <em>fill=0</em>, <em>allow_transpose=True</em>, <em>allow_tuple=True</em>, <em>output=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/qpoint/_libqpoint.html#check_input"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#qpoint.qpoint_class.check_input" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure input argument is an aligned array of the right type and shape.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>name</strong> (<em>string</em>) – Name of the argument</li>
+<li><strong>arg</strong> (<em>array_like</em>) – The argument itself</li>
+<li><strong>shape</strong> (<em>tuple</em><em>, </em><em>optional</em>) – If supplied, ensure <cite>arg</cite> has this shape.</li>
+<li><strong>quat</strong> (<em>bool</em><em>, </em><em>optional</em>) – If True, ensure that the last dimension of the array has length 4.</li>
+<li><strong>dtype</strong> (<em>numpy.dtype</em><em>, </em><em>optional</em>) – Ensure <cite>arg</cite> is of this dtype.  Default: numpy.double.</li>
+<li><strong>inplace</strong> (<em>bool</em><em>, </em><em>optional</em>) – If False make sure that a copy of the input <cite>arg</cite> is made prior to
+returning.  Otherwise, the output <cite>arg</cite> may share memory with the
+input.</li>
+<li><strong>fill</strong> (<em>scalar</em><em>, </em><em>optional</em>) – If the input is missing or empty, fill with this value.
+If None, leave the array empty.</li>
+<li><strong>allow_transpose</strong> (<em>bool</em><em>, </em><em>optional</em>) – If True, transpose the input array if the transposed shape matches
+<cite>shape</cite>.</li>
+<li><strong>allow_tuple</strong> (<em>bool</em><em>, </em><em>optional</em>) – If True, <cite>numpy.vstack</cite> the input <cite>arg</cite> if it is a tuple.</li>
+<li><strong>output</strong> (<em>bool</em><em>, </em><em>optional</em>) – If True, ensure that the output <cite>arg</cite> is a writeable array.
+Otherwise, the array is only ensured to be aligned and
+C-contiguous.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><em>arg</em> – Aligned, contiguous and properly typed and shaped array for
+passing to the C library.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="qpoint.qpoint_class.check_inputs">
+<code class="descclassname">qpoint.qpoint_class.</code><code class="descname">check_inputs</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/qpoint/_libqpoint.html#check_inputs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#qpoint.qpoint_class.check_inputs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure that a group of input arguments have the same shape by broadcasting.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>args</strong> – A list of broadcastable array_like arguments.</li>
+<li><strong>kwargs</strong> – Dictionary of arguments to pass to <cite>check_input</cite>.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><em>args</em> – A list of broadcast and properly aligned/shaped/typed arrays for
+passing to the C library as a set of timestreams.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="qpoint.qpoint_class.check_output">
+<code class="descclassname">qpoint.qpoint_class.</code><code class="descname">check_output</code><span class="sig-paren">(</span><em>name</em>, <em>arg=None</em>, <em>shape=None</em>, <em>quat=False</em>, <em>dtype=&lt;type ‘numpy.float64’&gt;</em>, <em>inplace=True</em>, <em>fill=None</em>, <em>allow_transpose=True</em>, <em>allow_tuple=True</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/qpoint/_libqpoint.html#check_output"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#qpoint.qpoint_class.check_output" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure that the output argument is properly aligned/shaped/typed.
+Check input kwargs to see if a pointer to the output array
+has been passed in.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>name</strong> (<em>string</em>) – Name of the argument</li>
+<li><strong>arg</strong> (<em>array_like</em><em>, </em><em>optional</em>) – The argument itself.  If not supplied, kwargs is checked.</li>
+<li><strong>shape</strong> (<em>tuple</em><em>, </em><em>optional</em>) – If supplied, ensure <cite>arg</cite> has this shape.  If <cite>arg</cite> is None,
+this argument is required.</li>
+<li><strong>dtype</strong> (<em>numpy.dtype</em><em>, </em><em>optional</em>) – Ensure <cite>arg</cite> is of this dtype.  Default: numpy.double.</li>
+<li><strong>inplace</strong> (<em>bool</em><em>, </em><em>optional</em>) – If False make sure that a copy of the input <cite>arg</cite> is made prior to
+returning.  Otherwise, the output <cite>arg</cite> may share memory with the
+input.</li>
+<li><strong>fill</strong> (<em>scalar</em><em>, </em><em>optional</em>) – If the input is missing or empty, fill with this value.
+If None, leave the array empty.</li>
+<li><strong>allow_transpose</strong> (<em>bool</em><em>, </em><em>optional</em>) – If True, transpose the input array if the transposed shape matches
+<cite>shape</cite>.</li>
+<li><strong>allow_tuple</strong> (<em>bool</em><em>, </em><em>optional</em>) – If True, <cite>numpy.vstack</cite> the input <cite>arg</cite> if it is a tuple.</li>
+<li><strong>kwargs</strong> – Any remaining input arguments.  If <cite>arg</cite> is None,
+<cite>kwargs</cite> is searched for the <cite>name</cite> key.  If not found, a
+an empty array is created of the appropriate shape.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><em>arg</em> – Aligned, contiguous, writeable and properly typed and shaped array
+for passing to the C library.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<span class="target" id="module-qpoint.qmap_class"></span><dl class="function">
+<dt id="qpoint.qmap_class.check_map">
+<code class="descclassname">qpoint.qmap_class.</code><code class="descname">check_map</code><span class="sig-paren">(</span><em>map_in</em>, <em>copy=False</em>, <em>partial=False</em>, <em>dtype=&lt;type ‘numpy.float64’&gt;</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/qpoint/qmap_class.html#check_map"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#qpoint.qmap_class.check_map" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a properly transposed and memory-aligned map and its nside.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>map_in</strong> (<em>map</em><em> or </em><em>list of maps</em>) – Input map(s)</li>
+<li><strong>copy</strong> (<em>bool</em><em>, </em><em>optional</em>) – If True, ensure that output map does not share memory with
+the input map.   Use if you do not want in-place operations to
+modify the map contents.</li>
+<li><strong>partial</strong> (<em>bool</em><em>, </em><em>optional</em>) – If True, the map is not checked to ensure a proper healpix nside,
+and the number of pixels is returned instead.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><ul class="simple">
+<li><strong>map_out</strong> (<em>numpy.ndarray</em>) – Properly shaped and memory-aligned map, copied from the input
+if necessary.</li>
+<li><strong>nside or npix</strong> (<em>int</em>) – If partial is False, the map nside. Otherwise, the number of pixels.</li>
+</ul>
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="qpoint.qmap_class.check_proj">
+<code class="descclassname">qpoint.qmap_class.</code><code class="descname">check_proj</code><span class="sig-paren">(</span><em>proj_in</em>, <em>copy=False</em>, <em>partial=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/qpoint/qmap_class.html#check_proj"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#qpoint.qmap_class.check_proj" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a properly transposed and memory-aligned projection map,
+its nside, and the map dimension.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>proj_in</strong> (<em>map</em><em> or </em><em>list of maps</em>) – Input projection matrix map</li>
+<li><strong>copy</strong> (<em>bool</em><em>, </em><em>optional</em>) – If True, ensure that output map does not share memory with
+the input map.   Use if you do not want in-place operations to
+modify the map contents.</li>
+<li><strong>partial</strong> (<em>bool</em><em>, </em><em>optional</em>) – If True, the map is not checked to ensure a proper healpix nside,
+and the number of pixels is returned instead.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><ul class="simple">
+<li><strong>map_out</strong> (<em>numpy.ndarray</em>) – Properly shaped and memory-aligned map, copied from the input
+if necessary.</li>
+<li><strong>nside or npix</strong> (<em>int</em>) – If partial is False, the map nside. Otherwise, the number of pixels.</li>
+<li><strong>nmap</strong> (<em>int</em>) – The map size this projection matrix is intended to invert, i.e.
+the solution to <cite>len(proj) = nmap * (nmap + 1) / 2</cite>.  Raises an
+error if an integer solution is not found.</li>
+</ul>
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<span class="target" id="module-qpoint.tools"></span><dl class="function">
+<dt id="qpoint.tools.refraction">
+<code class="descclassname">qpoint.tools.</code><code class="descname">refraction</code><span class="sig-paren">(</span><em>el</em>, <em>temp</em>, <em>press</em>, <em>hum</em>, <em>freq=150.0</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/qpoint/tools.html#refraction"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#qpoint.tools.refraction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Standalone function for calculating the refraction correction without
+storing any parameters.  Useful for testing, numpy-vectorized.</p>
+<p>Arguments:</p>
+<p>el           elevation angle, degrees
+temperature  temperature, Celcius
+pressure     pressure, mbar
+humidity     humidity, fraction
+frequency    array frequency, GHz</p>
+<p>Output:</p>
+<p>delta        refraction correction, in degrees</p>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="qmap_class.html" title="QMap Class"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">qpoint 1.9.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2017, Alexandra Rahlin.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.2.
+    </div>
+  </body>
+</html>
