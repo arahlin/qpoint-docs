@@ -74,20 +74,26 @@
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Standalone function for calculating the refraction correction without</span>
 <span class="sd">    storing any parameters.  Useful for testing, numpy-vectorized.</span>
-<span class="sd">    </span>
-<span class="sd">    Arguments:</span>
-<span class="sd">    </span>
-<span class="sd">    el           elevation angle, degrees</span>
-<span class="sd">    temperature  temperature, Celcius</span>
-<span class="sd">    pressure     pressure, mbar</span>
-<span class="sd">    humidity     humidity, fraction</span>
-<span class="sd">    frequency    array frequency, GHz</span>
-<span class="sd">    </span>
-<span class="sd">    Output:</span>
-<span class="sd">    </span>
-<span class="sd">    delta        refraction correction, in degrees</span>
+
+<span class="sd">    Arguments</span>
+<span class="sd">    ---------</span>
+<span class="sd">    el : array_like</span>
+<span class="sd">        Observer elevation angle, degrees</span>
+<span class="sd">    temperature : array_like</span>
+<span class="sd">        Ambient temperature, Celcius</span>
+<span class="sd">    pressure : array_like</span>
+<span class="sd">        Ambient pressure, mbar</span>
+<span class="sd">    humidity : array_like</span>
+<span class="sd">        Relative humidity, fraction</span>
+<span class="sd">    frequency : array_like</span>
+<span class="sd">        Observing frequency, GHz</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    delta : array_like</span>
+<span class="sd">        Refraction correction, in degrees</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    
+
     <span class="n">fvec</span> <span class="o">=</span> <span class="n">_np</span><span class="o">.</span><span class="n">vectorize</span><span class="p">(</span><span class="n">_libqp</span><span class="o">.</span><span class="n">qp_refraction</span><span class="p">,[</span><span class="n">_np</span><span class="o">.</span><span class="n">double</span><span class="p">])</span>
     <span class="n">delta</span> <span class="o">=</span> <span class="n">fvec</span><span class="p">(</span><span class="n">el</span><span class="p">,</span> <span class="n">temp</span><span class="p">,</span> <span class="n">press</span><span class="p">,</span> <span class="n">hum</span><span class="p">,</span> <span class="n">freq</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">delta</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="p">():</span>

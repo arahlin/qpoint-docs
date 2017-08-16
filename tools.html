@@ -248,14 +248,24 @@ error if an integer solution is not found.</li>
 <code class="descclassname">qpoint.tools.</code><code class="descname">refraction</code><span class="sig-paren">(</span><em>el</em>, <em>temp</em>, <em>press</em>, <em>hum</em>, <em>freq=150.0</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/qpoint/tools.html#refraction"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#qpoint.tools.refraction" title="Permalink to this definition">¶</a></dt>
 <dd><p>Standalone function for calculating the refraction correction without
 storing any parameters.  Useful for testing, numpy-vectorized.</p>
-<p>Arguments:</p>
-<p>el           elevation angle, degrees
-temperature  temperature, Celcius
-pressure     pressure, mbar
-humidity     humidity, fraction
-frequency    array frequency, GHz</p>
-<p>Output:</p>
-<p>delta        refraction correction, in degrees</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>el</strong> (<em>array_like</em>) – Observer elevation angle, degrees</li>
+<li><strong>temperature</strong> (<em>array_like</em>) – Ambient temperature, Celcius</li>
+<li><strong>pressure</strong> (<em>array_like</em>) – Ambient pressure, mbar</li>
+<li><strong>humidity</strong> (<em>array_like</em>) – Relative humidity, fraction</li>
+<li><strong>frequency</strong> (<em>array_like</em>) – Observing frequency, GHz</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><strong>delta</strong> (<em>array_like</em>) – Refraction correction, in degrees</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </div>

@@ -560,41 +560,36 @@ The output array shape is (ndet, nsamp).</p>
 <dt id="qpoint.qmap_class.QMap.unsolve_map">
 <code class="descname">unsolve_map</code><span class="sig-paren">(</span><em>map_in</em>, <em>proj=None</em>, <em>mask=None</em>, <em>copy=True</em>, <em>return_proj=False</em>, <em>return_mask=False</em>, <em>partial=None</em>, <em>fill=0</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/qpoint/qmap_class.html#QMap.unsolve_map"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#qpoint.qmap_class.QMap.unsolve_map" title="Permalink to this definition">¶</a></dt>
 <dd><p>Invert the solved map to recover the binned vec array.</p>
-<dl class="docutils">
-<dt>map_in <span class="classifier-delimiter">:</span> <span class="classifier">array_like</span></dt>
-<dd>A map or list of N maps.</dd>
-<dt>proj <span class="classifier-delimiter">:</span> <span class="classifier">array_like, optional</span></dt>
-<dd>An array of upper-triangular projection matrices for each pixel,
-of shape (N*(N+1)/2, npix).  Default to <cite>depo[‘proj’]</cite>.</dd>
-<dt>mask <span class="classifier-delimiter">:</span> <span class="classifier">array_like, optional</span></dt>
-<dd>A mask of shape (npix,), evaluates to True where pixels are valid.
-The input mask in converted to a boolean array if supplied.</dd>
-<dt>copy <span class="classifier-delimiter">:</span> <span class="classifier">bool, optional</span></dt>
-<dd>if False, do the computation in-place so that the input maps are
-modified.  Otherwise, a copy is created prior to solving.
-Default: False.</dd>
-<dt>return_proj <span class="classifier-delimiter">:</span> <span class="classifier">bool, optional</span></dt>
-<dd>if True, return the Cholesky-decomposed projection matrix.
-if False, and inplace is True, the input projection matrix
-is not modified.</dd>
-<dt>return_mask <span class="classifier-delimiter">:</span> <span class="classifier">bool, optional</span></dt>
-<dd>if True, return the mask array, updated with any pixels
-that could not be solved.</dd>
-<dt>partial <span class="classifier-delimiter">:</span> <span class="classifier">bool, optional</span></dt>
-<dd>If True, the map is not checked to ensure a proper healpix nside.</dd>
-<dt>fill <span class="classifier-delimiter">:</span> <span class="classifier">scalar, optional</span></dt>
-<dd>Fill the solved map where proj == 0 with this value.  Default: 0.</dd>
-</dl>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><ul class="simple">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>map_in</strong> (<em>array_like</em>) – A map or list of N maps.</li>
+<li><strong>proj</strong> (<em>array_like</em><em>, </em><em>optional</em>) – An array of upper-triangular projection matrices for each pixel,
+of shape (N*(N+1)/2, npix).  Default to <cite>depo[‘proj’]</cite>.</li>
+<li><strong>mask</strong> (<em>array_like</em><em>, </em><em>optional</em>) – A mask of shape (npix,), evaluates to True where pixels are valid.
+The input mask in converted to a boolean array if supplied.</li>
+<li><strong>copy</strong> (<em>bool</em><em>, </em><em>optional</em>) – if False, do the computation in-place so that the input maps are
+modified.  Otherwise, a copy is created prior to solving.
+Default: False.</li>
+<li><strong>return_proj</strong> (<em>bool</em><em>, </em><em>optional</em>) – if True, return the Cholesky-decomposed projection matrix.
+if False, and inplace is True, the input projection matrix
+is not modified.</li>
+<li><strong>return_mask</strong> (<em>bool</em><em>, </em><em>optional</em>) – if True, return the mask array, updated with any pixels
+that could not be solved.</li>
+<li><strong>partial</strong> (<em>bool</em><em>, </em><em>optional</em>) – If True, the map is not checked to ensure a proper healpix nside.</li>
+<li><strong>fill</strong> (<em>scalar</em><em>, </em><em>optional</em>) – Fill the solved map where proj == 0 with this value.  Default: 0.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><ul class="simple">
 <li><strong>vec</strong> (<em>array_like</em>) – A binned map or set of maps, in shape (N, npix).</li>
 <li><strong>proj_out</strong> (<em>array_like</em>) – The upper triangular elements of the projection matrix,
 if requested, in shape (N*(N+1)/2, npix).</li>
 <li><strong>mask</strong> (<em>array_like</em>) – 1-d array, True for valid pixels, if <cite>return_mask</cite> is True</li>
 </ul>
+</p>
 </td>
 </tr>
 </tbody>

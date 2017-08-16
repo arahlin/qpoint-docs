@@ -754,7 +754,7 @@
 <span class="sd">        flag : array_like, optional</span>
 <span class="sd">            Flag array, of shape (ndet, nsamp), for excluding data from</span>
 <span class="sd">            mapmaking.  nsamp must match that of the pointing structure.</span>
-<span class="sd">            If not supplied, a zero-filled array is initialized (i.e. no </span>
+<span class="sd">            If not supplied, a zero-filled array is initialized (i.e. no</span>
 <span class="sd">            flagged samples).</span>
 <span class="sd">        weights : array_like, optional</span>
 <span class="sd">            Weight array, of shape (ndet, nsamp), for weighting each sample of</span>
@@ -1276,6 +1276,8 @@
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Invert the solved map to recover the binned vec array.</span>
 
+<span class="sd">        Arguments</span>
+<span class="sd">        ---------</span>
 <span class="sd">        map_in : array_like</span>
 <span class="sd">            A map or list of N maps.</span>
 <span class="sd">        proj : array_like, optional</span>
