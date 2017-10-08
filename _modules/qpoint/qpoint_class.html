@@ -5,16 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>qpoint.qpoint_class &#8212; qpoint 1.9.0 documentation</title>
-    
+    <title>qpoint.qpoint_class &#8212; qpoint 1.10.0 documentation</title>
     <link rel="stylesheet" href="../../_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../../',
-        VERSION:     '1.9.0',
+        VERSION:     '1.10.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -24,7 +21,7 @@
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" /> 
   </head>
@@ -38,7 +35,7 @@
         <li class="right" >
           <a href="../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../index.html">qpoint 1.9.0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">qpoint 1.10.0 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../index.html" >Module code</a> &#187;</li>
           <li class="nav-item nav-item-2"><a href="../qpoint.html" accesskey="U">qpoint</a> &#187;</li> 
       </ul>
@@ -244,6 +241,13 @@
 <span class="sd">        correction term at the beginning of each chunk.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">qp</span><span class="o">.</span><span class="n">qp_reset_rates</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_memory</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="QPoint.reset_inv_rates"><a class="viewcode-back" href="../../qpoint_class.html#qpoint.qpoint_class.QPoint.reset_inv_rates">[docs]</a>    <span class="k">def</span> <span class="nf">reset_inv_rates</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Reset update counters for each inverse state.  Useful to force an updated</span>
+<span class="sd">        correction term at the beginning of each chunk.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">qp</span><span class="o">.</span><span class="n">qp_reset_inv_rates</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_memory</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="QPoint.refraction"><a class="viewcode-back" href="../../qpoint_class.html#qpoint.qpoint_class.QPoint.refraction">[docs]</a>    <span class="k">def</span> <span class="nf">refraction</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;refraction(q, **kwargs)</span>
@@ -668,11 +672,12 @@
 
         <span class="n">q_off</span>  <span class="o">=</span> <span class="n">check_input</span><span class="p">(</span><span class="s1">&#39;q_off&#39;</span><span class="p">,</span> <span class="n">q_off</span><span class="p">,</span> <span class="n">quat</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
         <span class="n">q_bore</span> <span class="o">=</span> <span class="n">check_input</span><span class="p">(</span><span class="s1">&#39;q_bore&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">atleast_2d</span><span class="p">(</span><span class="n">q_bore</span><span class="p">),</span> <span class="n">quat</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">shape</span> <span class="o">=</span> <span class="p">(</span><span class="n">q_bore</span><span class="o">.</span><span class="n">size</span> <span class="o">//</span> <span class="mi">4</span><span class="p">,)</span>
         <span class="k">if</span> <span class="n">ctime</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;mean_aber&#39;</span><span class="p">):</span>
                 <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;ctime required if mean_aber is False&#39;</span><span class="p">)</span>
-            <span class="n">ctime</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">q_bore</span><span class="o">.</span><span class="n">size</span> <span class="o">//</span> <span class="mi">4</span><span class="p">,),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">q_bore</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
-        <span class="n">ctime</span>  <span class="o">=</span> <span class="n">check_input</span><span class="p">(</span><span class="s1">&#39;ctime&#39;</span><span class="p">,</span> <span class="n">ctime</span><span class="p">)</span>
+            <span class="n">ctime</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">shape</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">q_bore</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+        <span class="n">ctime</span>  <span class="o">=</span> <span class="n">check_input</span><span class="p">(</span><span class="s1">&#39;ctime&#39;</span><span class="p">,</span> <span class="n">ctime</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="n">shape</span><span class="p">)</span>
         <span class="n">pars</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="n">ctime</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">double</span><span class="p">)</span>
         <span class="n">ra</span> <span class="o">=</span> <span class="n">check_output</span><span class="p">(</span><span class="s1">&#39;ra&#39;</span><span class="p">,</span> <span class="n">ra</span><span class="p">,</span> <span class="o">**</span><span class="n">pars</span><span class="p">)</span>
         <span class="n">dec</span> <span class="o">=</span> <span class="n">check_output</span><span class="p">(</span><span class="s1">&#39;dec&#39;</span><span class="p">,</span> <span class="n">dec</span><span class="p">,</span> <span class="o">**</span><span class="n">pars</span><span class="p">)</span>
@@ -808,6 +813,59 @@
                                      <span class="n">ra</span><span class="p">,</span> <span class="n">dec</span><span class="p">,</span> <span class="n">sin2psi</span><span class="p">,</span> <span class="n">cos2psi</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
 
         <span class="k">return</span> <span class="n">ra</span><span class="p">,</span> <span class="n">dec</span><span class="p">,</span> <span class="n">sin2psi</span><span class="p">,</span> <span class="n">cos2psi</span></div>
+
+<div class="viewcode-block" id="QPoint.radec2azel"><a class="viewcode-back" href="../../qpoint_class.html#qpoint.qpoint_class.QPoint.radec2azel">[docs]</a>    <span class="k">def</span> <span class="nf">radec2azel</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ra</span><span class="p">,</span> <span class="n">dec</span><span class="p">,</span> <span class="n">pa</span><span class="p">,</span> <span class="n">lon</span><span class="p">,</span> <span class="n">lat</span><span class="p">,</span> <span class="n">ctime</span><span class="p">,</span> <span class="n">az</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">el</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">hpa</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                   <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Estimate the horizon coordinates for a given set of equatorial coordinates</span>
+<span class="sd">        (ra/dec/psi), location on the earth (lon/lat) and UTC time.  Input vectors</span>
+<span class="sd">        must be numpy-array-like and of the same shape.</span>
+
+<span class="sd">        Arguments</span>
+<span class="sd">        ---------</span>
+<span class="sd">        ra : array_like</span>
+<span class="sd">            Right ascension angle</span>
+<span class="sd">        dec : array_like</span>
+<span class="sd">            Declination angle</span>
+<span class="sd">        pa : array_like</span>
+<span class="sd">            Position angle in equatorial coordinates</span>
+<span class="sd">        lon : array_like</span>
+<span class="sd">            Observer longitude in degrees.</span>
+<span class="sd">        lat : array_like</span>
+<span class="sd">            Observer latitude in degrees.</span>
+<span class="sd">        ctime : array_like</span>
+<span class="sd">            Unix time in seconds UTC</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        az : array_like</span>
+<span class="sd">            Azimuth in degrees</span>
+<span class="sd">        el : array_like</span>
+<span class="sd">            Elevation in degrees</span>
+<span class="sd">        hpa : array_like</span>
+<span class="sd">            Position angle in horizon coordinates</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        Any keywords accepted by the :meth:`qpoint.qpoint_class.QPoint.set`</span>
+<span class="sd">        method can also be passed here, and will be processed prior to</span>
+<span class="sd">        calculation.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+        <span class="n">ra</span><span class="p">,</span> <span class="n">dec</span><span class="p">,</span> <span class="n">pa</span><span class="p">,</span> <span class="n">lon</span><span class="p">,</span> <span class="n">lat</span><span class="p">,</span> <span class="n">ctime</span> <span class="o">=</span> \
+            <span class="n">check_inputs</span><span class="p">(</span><span class="n">ra</span><span class="p">,</span> <span class="n">dec</span><span class="p">,</span> <span class="n">pa</span><span class="p">,</span> <span class="n">lon</span><span class="p">,</span> <span class="n">lat</span><span class="p">,</span> <span class="n">ctime</span><span class="p">)</span>
+
+        <span class="n">az</span> <span class="o">=</span> <span class="n">check_output</span><span class="p">(</span><span class="s1">&#39;az&#39;</span><span class="p">,</span> <span class="n">az</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="n">ra</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">double</span><span class="p">)</span>
+        <span class="n">el</span> <span class="o">=</span> <span class="n">check_output</span><span class="p">(</span><span class="s1">&#39;el&#39;</span><span class="p">,</span> <span class="n">el</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="n">ra</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">double</span><span class="p">)</span>
+        <span class="n">hpa</span> <span class="o">=</span> <span class="n">check_output</span><span class="p">(</span><span class="s1">&#39;hpa&#39;</span><span class="p">,</span> <span class="n">hpa</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="n">ra</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">double</span><span class="p">)</span>
+        <span class="n">n</span> <span class="o">=</span> <span class="n">ra</span><span class="o">.</span><span class="n">size</span>
+
+        <span class="n">qp</span><span class="o">.</span><span class="n">qp_radec2azel</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_memory</span><span class="p">,</span> <span class="n">ra</span><span class="p">,</span> <span class="n">dec</span><span class="p">,</span> <span class="n">pa</span><span class="p">,</span> <span class="n">lon</span><span class="p">,</span> <span class="n">lat</span><span class="p">,</span> <span class="n">ctime</span><span class="p">,</span>
+                         <span class="n">az</span><span class="p">,</span> <span class="n">el</span><span class="p">,</span> <span class="n">hpa</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">az</span><span class="p">,</span> <span class="n">el</span><span class="p">,</span> <span class="n">hpa</span></div>
 
 <div class="viewcode-block" id="QPoint.radecpa2quat"><a class="viewcode-back" href="../../qpoint_class.html#qpoint.qpoint_class.QPoint.radecpa2quat">[docs]</a>    <span class="k">def</span> <span class="nf">radecpa2quat</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ra</span><span class="p">,</span> <span class="n">dec</span><span class="p">,</span> <span class="n">pa</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -1408,14 +1466,14 @@
         <li class="right" >
           <a href="../../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../index.html">qpoint 1.9.0 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">qpoint 1.10.0 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../index.html" >Module code</a> &#187;</li>
           <li class="nav-item nav-item-2"><a href="../qpoint.html" >qpoint</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2017, Alexandra Rahlin.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.2.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.4.
     </div>
   </body>
 </html>
